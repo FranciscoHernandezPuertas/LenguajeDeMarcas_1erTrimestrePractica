@@ -1,0 +1,5 @@
+/* CSS Grid se suele usar para las estructuras (filas, columnas)
+y Flexbox para acomodar elementos y espaciado de cajas dentro de los elementos /*
+/* Usaremos un comentario de Grid o Flex para indicar que las siguientes líneas
+en una clase son de ese Grid/Flex para tenerlo organizado, en el documento html
+se usa <div class="nombreDeClase"> */
