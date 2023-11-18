@@ -148,11 +148,13 @@ nav a:hover{
 
 .divisor-bg {
     background-image: url("../imagenes/wave.svg");
+    width: 100%;
 }
 footer {
 
 }
 .footer {
+    width: 100%;
     background-image: linear-gradient(#79c779, #5cae5c);
     background-size: cover;
     background-repeat: no-repeat;
