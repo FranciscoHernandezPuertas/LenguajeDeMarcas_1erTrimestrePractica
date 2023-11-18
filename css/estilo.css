@@ -13,17 +13,31 @@ body{
     background-size: cover;
     display: grid;
     place-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /*Navbar*/
-header{
+header {
     background-color: palegreen;
     text-align: center;
     position: fixed;
     width: 100%;
-    z-index: 999; /*Esto sirve para asegurarse de que se queda encima de todo*/
+    z-index: 999;
 }
-/*
+/*Alineamos logo y "Botón"*/
+.logo {
+    display: inline-block;
+    vertical-align: middle; /* Alinear verticalmente */
+    margin: 0; /* Asegurarse de que no haya márgenes */
+    padding-top: 3px;
+}
+.nav-toggle-label {
+    display: inline-block;
+    vertical-align: middle; /* Alinear verticalmente */
+    margin-left: 1em;
+}
+/* Prescindible, no usar ya que estamos usando una imagen como botón en lugar de elementos de líneas:
 .nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after{
     display: block;
     background-color: white;
@@ -39,6 +53,8 @@ nav {
     left: 0;
     background-color: palegreen;
     width: 100%;
+    display: flex;
+    flex-direction: row;
     /*Animación sin desplegar*/
     transform: scale(1, 0);
     transform-origin: top;
@@ -59,7 +75,7 @@ nav a{
     font-size: 1.2em;
     text-transform: none;
     opacity: 0;
-    transition: opacity 150ms ease-in-out; /*Tiempo de la animación)*/
+    transition: opacity 150ms ease-in-out ease; /*Tiempo de la animación)*/
 }
 nav a:hover{
     color: blue;
@@ -84,7 +100,6 @@ nav a:hover{
     opacity: 1; /*Mostrar el texto después de la animación*/
     transition: opacity 250ms ease-in-out 250ms; /*Tiempo y Retraso de la animación (tarda x tiempo antes de empezar la animación)*/
 }
-
 /*Navbar para pantallas superiores a 800px de ancho (eliminamos el desplegable)*/
 @media screen and (min-width:800px){
     .nav-toggle-label{
@@ -96,7 +111,7 @@ nav a:hover{
         grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; /*Establecemos cuatro columnas con un espacio a izquierda y derecha y  */
     }
     .logo{
-        grid-column: 1 / 2 /*El logo empezará en la columna 1 y terminará en la 2 */
+        grid-column: 1 / 2; /*El logo empezará en la columna 1 y terminará en la 2 */
     }
     nav{
         all:unset; /*Quitamos todos los estilos implementados previamente de la navbar*/
@@ -107,6 +122,7 @@ nav a:hover{
     }
     nav a{
         opacity: 1;
+        transition: .5s;
     }
     nav ul{
         display: flex;
@@ -119,4 +135,62 @@ nav a:hover{
         color: red;
         transition: .5s;
     }
+}
+/*Footer: https://getwaves.io/*/
+/* Divisor */
+.divisor {
+    aspect-ratio: 900/250;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.divisor-bg {
+    background-image: url("../imagenes/wave.svg");
+}
+footer {
+
+}
+.footer {
+    background-image: linear-gradient(#79c779, #5cae5c);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px; /* Incrementé la altura para acomodar la cuarta sección */
+    display: grid;
+    grid-template-areas: 
+        'texto acercadeUrl'
+        'texto contactoUrl'
+        'derechos derechos';
+    gap: 0px;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.textoFooter {
+    grid-area: texto;
+    text-align: center;
+    font-size: 5em;
+    font-weight: bolder;
+    align-items: center; /* Centra verticalmente el texto */
+    place-items: center;
+}
+
+
+.acercadeUrl {
+    grid-area: acercadeUrl;
+    text-align: right;
+    font-size: 2em;
+}
+
+.contactoUrl {
+    grid-area: contactoUrl;
+    text-align: right;
+    font-size: 2em;
+}
+
+.derechos {
+    grid-area: derechos;
+    text-align: center;
+    font-size: .9em;
 }
