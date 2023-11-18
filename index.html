@@ -4,35 +4,30 @@
         <link rel="stylesheet" href="css/estilo.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <link rel="icon" type="image/x-icon" href="imagenes/home_assistant.png">
+        <link rel="icon" type="image/x-icon" href="./imagenes/home_assistant.png">
         <title>Página Principal</title>
     </head>
     <body>
         <header>
-            <div class="nav">
-                <div class="navizquierda">
-                    <ul>
-                        <li><a href="index.html"><img src="imagenes/home_assistant.png" alt="Home" width="40px"></a></li>
-                    </ul>
-                </div>
-                <div class="navcentro">
-                    <ul>
-                        <li><a class="active" href="">Inicio</a></li>
-                        <li><a class="active" href="">Prueba 2</a></li>
-                        <li><a class="active" href="">Prueba 3</a></li>
-                        <li><a class="active" href="">Prueba 4</a></li>
-                    </ul>
-                </div>
-                <div class="navderecha">
-                    <ul>
-                        <li><a href="formulario.html">Log In</a></li>
-                        <li><a href="formulario.html"><img src="imagenes/contacts_v3.png" width="40px" alt="Login"></a></li>
-                    </ul>
-                </div>
-            </div>
+            <h1 class="logo"><a href="index.html"><img src="imagenes/home_assistant.png" alt="Inicio Logo" width="50px"></a></h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Prueba1</a></li>
+                    <li><a href="#">Prueba2</a></li>
+                    <li><a href="#">Prueba3</a></li>
+                    <li><a href="#">Prueba4</a></li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span><img src="imagenes/pingtools.png" alt="Menú Navegación" width="50px"></span>
+            </label>
         </header>
         <main>
-
+            <div class="content">
+                <h2>El contenido irá aquí</h2>
+            </div>
         </main>
         <footer>
             <div class="footer">

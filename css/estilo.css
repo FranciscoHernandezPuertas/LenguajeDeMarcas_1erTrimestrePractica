@@ -1,65 +1,122 @@
-/* CSS Grid se suele usar para las estructuras (filas, columnas)
-y Flexbox para acomodar elementos y espaciado de cajas dentro de los elementos /*
-/* Usaremos un comentario de Grid o Flex para indicar que las siguientes líneas
-en una clase son de ese Grid/Flex para tenerlo organizado, en el documento html
-se usa <div class="nombreDeClase"> */
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    background-color: white;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.content {
+    height: 65vh;
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
 
-/* Navbar con Flexbox */
-.nav {
-    display: flex;
+/*Navbar*/
+header{
     background-color: palegreen;
-    border-radius: 10px;
-    justify-content: space-between; /* Espacio entre los elementos */
-    padding: 10px; /* Espaciado interno */
-    align-items: center; /* Centra verticalmente los elementos */
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999; /*Esto sirve para asegurarse de que se queda encima de todo*/
 }
-
-/* Estilos para los elementos de la lista */
-.nav ul {
-    list-style: none; /* Quita los estilos de lista predeterminados */
-    display: flex; /* Hace que los elementos de la lista sean flexibles */
-    align-items: center; /* Centra verticalmente los elementos */
+/*
+.nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after{
+    display: block;
+    background-color: white;
+    height: 2em;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+} */
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background-color: palegreen;
+    width: 100%;
+    /*Animación sin desplegar*/
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
 }
-
-.nav ul li {
-    margin: 0 10px; /* Añade un margen entre los elementos de la lista */
-    padding: 5px 10px; /* Espaciado interno para los elementos de la lista */
-    background-color: aqua;
-    border-radius: 8px;
-    display: flex; /* Para alinear verticalmente el contenido */
-    align-items: center; /* Centra verticalmente el contenido */
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-
-.nav ul li a {
-    text-decoration: none; /* Quita el subrayado del enlace */
-    color: black; /* Color del texto */
-    height: 40px;
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+nav a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: none;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out; /*Tiempo de la animación)*/
+}
+nav a:hover{
+    color: blue;
+}
+.nav-toggle:checked ~ nav { /*Buscamos por un hermano de toggle para hacer que al presionar el botón se muestre el contenido*/
+    transform: scale(1,1); /*Animación desplegada*/
+}
+.nav-toggle{
+    display: none;
+}
+.nav-toggle-label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    /* border: 1px solid red; */
+    height: 100%;
     display: flex;
     align-items: center;
 }
-
-/* Estilos para las clases navizquierda, navcentro y navderecha */
-.navizquierda,
-.navcentro,
-.navderecha {
-    height: 40px;
-    display: flex;
-    align-items: center;
-}
-.navizquierda ul {
-    margin-left: 0; /* Elimina el margen izquierdo de la lista */
-    padding-left: 0; /* También elimina el relleno izquierdo, si lo hubiera */
+.nav-toggle:checked ~ nav a{
+    opacity: 1; /*Mostrar el texto después de la animación*/
+    transition: opacity 250ms ease-in-out 250ms; /*Tiempo y Retraso de la animación (tarda x tiempo antes de empezar la animación)*/
 }
 
-.navizquierda ul li {
-    margin-left: 5px; /* Ajusta el margen izquierdo de los elementos */
-}
-
-.navderecha ul {
-    margin-right: 0; /* Elimina el margen derecho de la lista */
-    padding-right: 0; /* También elimina el relleno derecho, si lo hubiera */
-}
-
-.navderecha ul li {
-    margin-right: 5px; /* Ajusta el margen derecho de los elementos */
+/*Navbar para pantallas superiores a 800px de ancho (eliminamos el desplegable)*/
+@media screen and (min-width:800px){
+    .nav-toggle-label{
+        display: none;
+    }
+    
+    header{
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; /*Establecemos cuatro columnas con un espacio a izquierda y derecha y  */
+    }
+    .logo{
+        grid-column: 1 / 2 /*El logo empezará en la columna 1 y terminará en la 2 */
+    }
+    nav{
+        all:unset; /*Quitamos todos los estilos implementados previamente de la navbar*/
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav a{
+        opacity: 1;
+    }
+    nav ul{
+        display: flex;
+    }
+    nav li{
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+    nav a:hover{
+        color: red;
+        transition: .5s;
+    }
 }
