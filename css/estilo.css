@@ -3,3 +3,63 @@ y Flexbox para acomodar elementos y espaciado de cajas dentro de los elementos /
 /* Usaremos un comentario de Grid o Flex para indicar que las siguientes líneas
 en una clase son de ese Grid/Flex para tenerlo organizado, en el documento html
 se usa <div class="nombreDeClase"> */
+
+/* Navbar con Flexbox */
+.nav {
+    display: flex;
+    background-color: palegreen;
+    border-radius: 10px;
+    justify-content: space-between; /* Espacio entre los elementos */
+    padding: 10px; /* Espaciado interno */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+/* Estilos para los elementos de la lista */
+.nav ul {
+    list-style: none; /* Quita los estilos de lista predeterminados */
+    display: flex; /* Hace que los elementos de la lista sean flexibles */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.nav ul li {
+    margin: 0 10px; /* Añade un margen entre los elementos de la lista */
+    padding: 5px 10px; /* Espaciado interno para los elementos de la lista */
+    background-color: aqua;
+    border-radius: 8px;
+    display: flex; /* Para alinear verticalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.nav ul li a {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: black; /* Color del texto */
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para las clases navizquierda, navcentro y navderecha */
+.navizquierda,
+.navcentro,
+.navderecha {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.navizquierda ul {
+    margin-left: 0; /* Elimina el margen izquierdo de la lista */
+    padding-left: 0; /* También elimina el relleno izquierdo, si lo hubiera */
+}
+
+.navizquierda ul li {
+    margin-left: 5px; /* Ajusta el margen izquierdo de los elementos */
+}
+
+.navderecha ul {
+    margin-right: 0; /* Elimina el margen derecho de la lista */
+    padding-right: 0; /* También elimina el relleno derecho, si lo hubiera */
+}
+
+.navderecha ul li {
+    margin-right: 5px; /* Ajusta el margen derecho de los elementos */
+}
