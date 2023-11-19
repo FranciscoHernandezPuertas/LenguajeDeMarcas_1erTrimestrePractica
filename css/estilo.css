@@ -68,6 +68,12 @@ main {
     text-decoration: none;
     color: black;
 }
+aside iframe {
+    max-width: 100%; /* Para evitar que el iframe exceda el ancho del aside */
+    height: auto; /* Ajustar la altura automáticamente */
+    display: block; /* Asegurar que el iframe sea un bloque */
+    overflow: hidden; /* Ocultar el contenido que exceda el ancho del iframe */
+}
 /* Vista de móvil */
 @media screen and (max-width: 800px) {
     .content-container {
@@ -172,6 +178,9 @@ nav a:hover{
 .nav-toggle{
     display: none;
 }
+.nav-item-right{
+    display: none;
+}
 .nav-toggle-label{
     position: absolute;
     top: 0;
@@ -198,6 +207,9 @@ nav a:hover{
     .logo{
         justify-self: start;
         margin-left: 10px;
+    }
+    .nav-item-right{
+        display: block;
     }
     nav{
         all:unset; /*Quitamos todos los estilos implementados previamente de la navbar*/
@@ -328,7 +340,7 @@ nav a:hover{
         grid-area: contactoUrl;
         display: grid;
         justify-self: end;
-        margin-right: 4em;
+        margin-right: 5.5em;
         position: relative;
         bottom: 1em;
     }
@@ -336,7 +348,7 @@ nav a:hover{
         grid-area: acercadeUrl;
         display: grid;
         justify-self: end;
-        margin-right: 4.8em;
+        margin-right: 5.5em;
         position: relative;
         bottom: 1em;
     }
