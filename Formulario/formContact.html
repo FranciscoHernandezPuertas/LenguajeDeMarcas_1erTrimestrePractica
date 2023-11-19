@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contacto</title>
+    </head>
+    <body>
+        <p>Si tiene alguna duda, puede contactar con nosotros usando el siguiente formulario:</p>
+        <form action="prueba.html" method="post">
+            <fieldset>
+                <legend>Datos Personales:</legend>
+                <p><label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Alexander" name="nombre" required autofocus></p>
+
+                
+                <p><label for="email">Dirección de correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="example@example.org" required autofocus></p>
+            </fieldset>
+
+            <p>Por favor, especifique con que tipo de problema está relacionado pregunta:</p>
+                <select required >
+                    <optgroup label="Pagos">
+                        <option value="opcion1">Contra Reembolso</option>
+                        <option value="opcion2">Tarjeta</option>
+                        <option value="opcion3">Efectivo (solo en local)</option>
+                        <option value="opcion4">Apps de pagos</option>
+                    </optgroup>
+                    <optgroup label="Envio">
+                        <option value="opcion5">Tasas de península / Canarias</option>
+                        <option value="opcion6">Seguimiento</option>
+                        <option value="opcion7">Transportistas</option>
+                        <option value="opcion8">Tipos de envíos</option>
+                    </optgroup>
+                    <optgroup label="Productos">
+                        <option value="opcion9">Acerca de los lavados</option>
+                        <option value="opcion10">Garantía</option>
+                        <option value="opcion11">Defectos</option>
+                        <option value="opcion12">Reembolsos</option>
+                    </optgroup>
+                    <optgroup label="Otros">
+                        <option value="opcion17">Otro...</option>
+                    </optgroup>
+                </select>
+
+
+                <p>Indíquenos a continuación una explicación del problema:</p>
+                <textarea name="opinion" cols="40" rows="10" wrap="hard" maxlength="2000" placeholder="Escriba aquí"></textarea>
+                <p><input type="submit" value="Enviar">
+                <input type="reset" value="Restablecer Formulario"></p>
+        </form>
+    </body>
+</html>
