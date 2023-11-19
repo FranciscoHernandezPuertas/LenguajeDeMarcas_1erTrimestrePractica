@@ -1,3 +1,15 @@
+/*El header, nav y footer deben ocupar todo el ancho del navegador. 
+El  header  y  el  footer  deben  contener,  entre  otras  cosas,  imágenes  que  sean  enlaces  (se 
+comparten las utilizadas como muestra). 
+El main debe estar centrado ocupando un ancho menor. 
+La parte del main debe comenzar mostrando una imagen. 
+Debe contener un iframe. 
+La página principal se mostrará en vista ordenador como se considere mejor, y debe modificar 
+su maquetación a otras vistas de la siguiente manera: 
+Tablet: igual que en modo ordenador, pero cambiando de lado la visualización del aside. 
+Móvil: todo el contenido se visualiza en modo columna, mostrándose el contenido del 
+aside entre la imagen y el resto del contenido del main.
+*/
 *, *::before, *::after{
     box-sizing: border-box;
 }
@@ -7,16 +19,99 @@ body{
     font-family: sans-serif;
     font-weight: 400;
 }
+/*Contenido*/
+main {
+    max-width: 1200px; /* Ancho máximo para el contenido principal */
+    margin: 0 auto; /* Centrar el contenido principal */
+    padding: 20px; /* Espaciado interno para el contenido principal */
+}
 .content {
-    height: 65vh;
-    background-blend-mode: multiply;
-    background-size: cover;
+    min-height: 65vh; /* Cambiado a min-height para permitir que el contenido se expanda */
     display: grid;
     place-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Usamos grid auto-fit para ajustar las columnas automáticamente */
+    gap: 20px; /* Espacio entre las imágenes */
+    margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
+    padding-top: 100px;
+    position: relative;
+}
+.content img {
+    max-width: 100%; /* Las imágenes se ajustarán al tamaño del contenedor */
+    height: auto;
+}
+.content h1{
+    text-align: center;
+    margin-bottom: 20px;
+    grid-column: 1 / -1; /* Ocupar todas las columnas disponibles */
+    position: relative; /* Cambiar a posición relativa */
+    z-index: 2; /* Asegurar que el texto del h1 esté por encima de las imágenes */
+}
+.gallery {
+    border: 5px solid palegreen;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+}
+.gallery:hover {   /*imagenes de la galería al pasar cursor por encima*/
+    border: 5px solid #79c779;
+    border-radius: 5px;
+}
+.content .descripcionImg {
+    text-align: center;
+    text-decoration: none;
+}
+.content .responsive .gallery .descripcionImg a {
+    text-decoration: none;
+    color: black;
+}
+.descripcionTexto {
+    text-decoration: none;
+    color: black;
+}
+/* Vista de móvil */
+@media screen and (max-width: 800px) {
+    .content-container {
+        display: block; /* Cambiar a bloque para apilar en móvil */
+    }
+    .ubicacion-aside {
+        padding-top: 20px; /* Ajusta el padding para separar */
+        font-weight: bolder;
+        font-size: large;
+    }
 }
 
+/* Vista de tablet */
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+    .content-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .ubicacion-aside {
+        grid-column: 2; /* Colocar el aside a la derecha */
+        padding-top: 158px;
+        font-weight: bolder;
+        font-size: large;
+    }
+}
+/* Vista de escritorio */
+@media screen and (min-width: 1001px) {
+    .content-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .ubicacion-aside {
+        grid-column: 1; /* Colocar el aside a la izquierda */
+        grid-row: 1; /* Colocar el aside en la primera fila */
+        padding-top: 125px;
+        font-weight: bolder;
+        font-size: large;
+    }
+    .content {
+        grid-column: 2; /* Colocar el contenido a la derecha */
+    }
+}
 /*Navbar*/
 header {
     background-color: palegreen;
@@ -37,15 +132,6 @@ header {
     vertical-align: middle; /* Alinear verticalmente */
     margin-left: 1em;
 }
-/* Prescindible, no usar ya que estamos usando una imagen como botón en lugar de elementos de líneas:
-.nav-toggle-label span, .nav-toggle-label span::before, .nav-toggle-label span::after{
-    display: block;
-    background-color: white;
-    height: 2em;
-    width: 2em;
-    border-radius: 2px;
-    position: relative;
-} */
 nav {
     position: absolute;
     text-align: left;
@@ -105,13 +191,13 @@ nav a:hover{
     .nav-toggle-label{
         display: none;
     }
-    
     header{
         display: grid;
-        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; /*Establecemos cuatro columnas con un espacio a izquierda y derecha y  */
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 20px; /*Establecemos cuatro columnas con un espacio a izquierda (1fr) y derecha  (20px) */
     }
     .logo{
-        grid-column: 1 / 2; /*El logo empezará en la columna 1 y terminará en la 2 */
+        justify-self: start;
+        margin-left: 10px;
     }
     nav{
         all:unset; /*Quitamos todos los estilos implementados previamente de la navbar*/
@@ -132,9 +218,16 @@ nav a:hover{
         margin-bottom: 0;
     }
     nav a:hover{
-        color: red;
+        color: blue;
         transition: .5s;
     }
+    .nav-item-right {
+        grid-column: 4 / 5; /* Posiciona la imagen en la cuarta columna */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
 }
 /*Footer: https://getwaves.io/*/
 /* Divisor */
@@ -150,49 +243,101 @@ nav a:hover{
     background-image: url("../imagenes/wave.svg");
     width: 100%;
 }
-footer {
-
-}
 .footer {
     width: 100%;
     background-image: linear-gradient(#79c779, #5cae5c);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 300px; /* Incrementé la altura para acomodar la cuarta sección */
+    min-height: 300px;
     display: grid;
-    grid-template-areas: 
-        'texto acercadeUrl'
-        'texto contactoUrl'
-        'derechos derechos';
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "textoFooter textoFooter textoFooter"
+        "contactoUrl contactoUrl contactoUrl"
+        "acercadeUrl acercadeUrl acercadeUrl"
+        "derechos derechos derechos";
     gap: 0px;
     padding-left: 2em;
     padding-right: 2em;
 }
-
-.textoFooter {
-    grid-area: texto;
-    text-align: center;
-    font-size: 5em;
-    font-weight: bolder;
-    align-items: center; /* Centra verticalmente el texto */
-    place-items: center;
+.imagenContacto {
+    grid-area: contactoUrl;
+    display: grid;
+    justify-self: end;
+    margin-right: 6em;
+    position: relative;
+    bottom: .75em;
 }
-
-
-.acercadeUrl {
+.imagenacercaDe {
     grid-area: acercadeUrl;
+    display: grid;
+    justify-self: end;
+    margin-right: 7.2em;
+    position: relative;
+    bottom: .75em;
+}
+.textoFooter {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bolder;
+    align-items: center;
+    place-items: center;
+    grid-area: textoFooter;
+}
+.acercadeUrl,
+.contactoUrl {
     text-align: right;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .contactoUrl {
     grid-area: contactoUrl;
-    text-align: right;
-    font-size: 2em;
 }
 
+.acercadeUrl {
+    grid-area: acercadeUrl;
+}
+.acercadeUrl a,
+.contactoUrl a{
+    text-decoration: none;
+    color:darkgreen;
+    transition: .5s;
+}
+.acercadeUrl a:hover,
+.contactoUrl a:hover{
+    color: blue;
+    transition: .5s;
+}
 .derechos {
-    grid-area: derechos;
     text-align: center;
-    font-size: .9em;
+    font-size: 1em;
+    grid-area: derechos;
+}
+/* Media queries para ajustar el diseño en diferentes tamaños de pantalla */
+@media screen and (max-width: 800px) {
+    .textoFooter {
+        font-size: 1.5em; /* Tamaño de texto relativo a resolución más grande para pantallas más pequeñas */
+        text-align: center;
+    }
+    .acercadeUrl,
+    .contactoUrl,
+    .derechos {
+        font-size: 1em; /* Tamaño de texto relativo a resolución más grande para pantallas más pequeñas */
+    }
+    .imagenContacto {
+        grid-area: contactoUrl;
+        display: grid;
+        justify-self: end;
+        margin-right: 4em;
+        position: relative;
+        bottom: 1em;
+    }
+    .imagenacercaDe {
+        grid-area: acercadeUrl;
+        display: grid;
+        justify-self: end;
+        margin-right: 4.8em;
+        position: relative;
+        bottom: 1em;
+    }
 }
