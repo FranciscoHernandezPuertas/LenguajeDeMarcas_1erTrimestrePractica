@@ -13,6 +13,143 @@ aside entre la imagen y el resto del contenido del main.
 *, *::before, *::after{
     box-sizing: border-box;
 }
+/*Navbar (https://www.youtube.com/watch?v=xQstBIPeOdU)*/
+header {
+    background-color: palegreen;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+/*Alineamos logo y "Botón"*/
+.logo {
+    display: inline-block;
+    vertical-align: middle; /* Alinear verticalmente */
+    margin: 0; /* Asegurarse de que no haya márgenes */
+    padding-top: 3px;
+}
+.nav-toggle-label {
+    display: inline-block;
+    vertical-align: middle; /* Alinear verticalmente */
+    margin-left: 1em;
+}
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background-color: palegreen;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /*Animación sin desplegar*/
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+nav a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: none;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out ease; /*Tiempo de la animación)*/
+}
+nav a:hover{
+    color: blue;
+}
+.nav-toggle:checked ~ nav { /*Buscamos por un hermano de toggle para hacer que al presionar el botón se muestre el contenido*/
+    transform: scale(1,1); /*Animación desplegada*/
+}
+.nav-toggle{
+    display: none;
+}
+.nav-item-right{
+    display: none;
+}
+.nav-toggle-label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    /* border: 1px solid red; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.nav-toggle:checked ~ nav a{
+    opacity: 1; /*Mostrar el texto después de la animación*/
+    transition: opacity 250ms ease-in-out 250ms; /*Tiempo y Retraso de la animación (tarda x tiempo antes de empezar la animación)*/
+}
+/*Navbar para pantallas superiores a 800px de ancho (eliminamos el desplegable)*/
+@media screen and (min-width: 800px) {
+    .nav-toggle-label {
+        display: none;
+    }
+    header {
+        display: grid;
+        grid-template-rows: auto; /* Tres filas iguales */
+        grid-template-columns: auto 1fr auto; /* Tres columnas: logo, texto, nav item right */
+        align-items: center; /* Alinea verticalmente los elementos */
+        justify-content: space-between; /* Espacio entre los elementos */
+        padding: 0 20px; /* Añade un poco de espacio alrededor de los elementos */
+        grid-template-areas:
+            "logo texto imagen";
+    }
+    .logo {
+        grid-area: logo;
+        justify-self: start;
+        margin: 0;
+    }
+    ul.nav-menu-items {
+        grid-area: texto;
+        display: grid; /* Cambiamos a grid para que los elementos se muestren en la misma fila */
+        gap: 20px; /* Espacio entre elementos */
+        padding: 0;
+        list-style: none; /* Aseguramos que no haya viñetas en la lista */
+    }
+    nav {
+        all: unset;
+        justify-self: center; /* Centra la navegación horizontalmente */
+        text-align: center; /* Alinea los elementos de navegación al centro */
+        margin: 0;
+        visibility: visible;
+    }
+    nav ul {
+        grid-auto-flow: column;
+        gap: 20px; /* Espacio entre elementos */
+        align-items: center; /* Alinea verticalmente los elementos */
+        padding: 0;
+    }
+    nav li {
+        margin: 0;
+    }
+    nav a {
+        opacity: 1;
+        transition: .5s;
+        color: black; /* Asegura que el color del texto sea visible */
+    }
+    nav a:hover {
+        color: blue;
+        transition: .5s;
+    }
+    .nav-item-right {
+        all: unset;
+        grid-area: imagen;
+        margin: 0;
+        visibility: visible; /* Asegura que el elemento sea visible */
+        justify-self: end; /* Alinea el elemento a la derecha */
+    }
+}
 body{
     margin: 0;
     background-color: white;
@@ -117,129 +254,6 @@ aside iframe {
     .content {
         grid-column: 2; /* Colocar el contenido a la derecha */
     }
-}
-/*Navbar*/
-header {
-    background-color: palegreen;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-}
-/*Alineamos logo y "Botón"*/
-.logo {
-    display: inline-block;
-    vertical-align: middle; /* Alinear verticalmente */
-    margin: 0; /* Asegurarse de que no haya márgenes */
-    padding-top: 3px;
-}
-.nav-toggle-label {
-    display: inline-block;
-    vertical-align: middle; /* Alinear verticalmente */
-    margin-left: 1em;
-}
-nav {
-    position: absolute;
-    text-align: left;
-    top: 100%;
-    left: 0;
-    background-color: palegreen;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    /*Animación sin desplegar*/
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 400ms ease-in-out;
-}
-nav ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-nav li{
-    margin-bottom: 1em;
-    margin-left: 1em;
-}
-nav a{
-    color: black;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: none;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out ease; /*Tiempo de la animación)*/
-}
-nav a:hover{
-    color: blue;
-}
-.nav-toggle:checked ~ nav { /*Buscamos por un hermano de toggle para hacer que al presionar el botón se muestre el contenido*/
-    transform: scale(1,1); /*Animación desplegada*/
-}
-.nav-toggle{
-    display: none;
-}
-.nav-item-right{
-    display: none;
-}
-.nav-toggle-label{
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1em;
-    /* border: 1px solid red; */
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-.nav-toggle:checked ~ nav a{
-    opacity: 1; /*Mostrar el texto después de la animación*/
-    transition: opacity 250ms ease-in-out 250ms; /*Tiempo y Retraso de la animación (tarda x tiempo antes de empezar la animación)*/
-}
-/*Navbar para pantallas superiores a 800px de ancho (eliminamos el desplegable)*/
-@media screen and (min-width:800px){
-    .nav-toggle-label{
-        display: none;
-    }
-    header{
-        display: grid;
-        grid-template-columns: 1fr auto minmax(600px, 3fr) 20px; /*Establecemos cuatro columnas con un espacio a izquierda (1fr) y derecha  (20px) */
-    }
-    .logo{
-        justify-self: start;
-        margin-left: 10px;
-    }
-    .nav-item-right{
-        display: block;
-    }
-    nav{
-        all:unset; /*Quitamos todos los estilos implementados previamente de la navbar*/
-        grid-column: 3 / 4;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    nav a{
-        opacity: 1;
-        transition: .5s;
-    }
-    nav ul{
-        display: flex;
-    }
-    nav li{
-        margin-left: 3em;
-        margin-bottom: 0;
-    }
-    nav a:hover{
-        color: blue;
-        transition: .5s;
-    }
-    .nav-item-right {
-        grid-column: 4 / 5; /* Posiciona la imagen en la cuarta columna */
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    
 }
 /*Footer: https://getwaves.io/*/
 /* Divisor */
