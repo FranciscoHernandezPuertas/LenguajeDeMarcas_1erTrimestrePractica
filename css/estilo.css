@@ -262,44 +262,30 @@ nav a:hover{
     background-repeat: no-repeat;
     min-height: 300px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
         "textoFooter textoFooter textoFooter"
-        "contactoUrl contactoUrl contactoUrl"
-        "acercadeUrl acercadeUrl acercadeUrl"
+        "contactoUrl placeholder acercadeUrl"
         "derechos derechos derechos";
     gap: 0px;
     padding-left: 2em;
     padding-right: 2em;
 }
-.imagenContacto {
-    grid-area: contactoUrl;
-    display: grid;
-    justify-self: end;
-    margin-right: 6em;
-    position: relative;
-    bottom: .75em;
-}
-.imagenacercaDe {
-    grid-area: acercadeUrl;
-    display: grid;
-    justify-self: end;
-    margin-right: 7.2em;
-    position: relative;
-    bottom: .75em;
-}
+
 .textoFooter {
     text-align: center;
     font-size: 3em;
     font-weight: bolder;
-    align-items: center;
-    place-items: center;
+    align-self: center;
     grid-area: textoFooter;
 }
-.acercadeUrl,
-.contactoUrl {
+
+.contactoUrl,
+.acercadeUrl {
     text-align: right;
     font-size: 1.5em;
+    align-self: center;
 }
 
 .contactoUrl {
@@ -309,47 +295,53 @@ nav a:hover{
 .acercadeUrl {
     grid-area: acercadeUrl;
 }
-.acercadeUrl a,
-.contactoUrl a{
+
+.contactoUrl a,
+.acercadeUrl a {
     text-decoration: none;
-    color:darkgreen;
+    color: darkgreen;
     transition: .5s;
+    display: grid;
+    grid-template-columns: auto auto; /* Columnas para texto e imagen */
+    align-items: center;
 }
-.acercadeUrl a:hover,
-.contactoUrl a:hover{
+
+.contactoUrl a:hover,
+.acercadeUrl a:hover {
     color: blue;
     transition: .5s;
 }
+
+.contactoUrl img,
+.acercadeUrl img {
+    margin-left: 0.5em; /* Espacio entre texto e imagen */
+}
+
 .derechos {
     text-align: center;
     font-size: 1em;
+    align-self: center;
     grid-area: derechos;
 }
-/* Media queries para ajustar el diseño en diferentes tamaños de pantalla */
-@media screen and (max-width: 800px) {
-    .textoFooter {
-        font-size: 1.5em; /* Tamaño de texto relativo a resolución más grande para pantallas más pequeñas */
-        text-align: center;
+/* Media query para pantallas de móvil */
+@media (max-width: 800px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
     }
-    .acercadeUrl,
+
+    .textoFooter,
     .contactoUrl,
+    .acercadeUrl,
     .derechos {
-        font-size: 1em; /* Tamaño de texto relativo a resolución más grande para pantallas más pequeñas */
+        text-align: center;
+        margin-bottom: 10px;
     }
-    .imagenContacto {
-        grid-area: contactoUrl;
-        display: grid;
-        justify-self: end;
-        margin-right: 5.5em;
-        position: relative;
-        bottom: 1em;
-    }
-    .imagenacercaDe {
-        grid-area: acercadeUrl;
-        display: grid;
-        justify-self: end;
-        margin-right: 5.5em;
-        position: relative;
-        bottom: 1em;
+
+    .contactoUrl,
+    .acercadeUrl {
+        text-align: center;
     }
 }
