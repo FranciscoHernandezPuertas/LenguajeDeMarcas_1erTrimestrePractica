@@ -91,7 +91,7 @@ nav a:hover{
     transition: opacity 250ms ease-in-out 250ms; /*Tiempo y Retraso de la animación (tarda x tiempo antes de empezar la animación)*/
 }
 /*Navbar para pantallas superiores a 800px de ancho (eliminamos el desplegable)*/
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 600px) {
     .nav-toggle-label {
         display: none;
     }
@@ -215,7 +215,7 @@ aside iframe {
     overflow: hidden; /* Ocultar el contenido que exceda el ancho del iframe */
 }
 /* Vista de móvil */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     /* Agregar reglas de flex para la vista móvil */
     .content {
         display: flex;
@@ -234,7 +234,7 @@ aside iframe {
     }
 }
 /* Vista de tablet */
-@media screen and (min-width: 801px) and (max-width: 1000px) {
+@media screen and (min-width: 601px) and (max-width: 992px) {
     .content-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -248,7 +248,7 @@ aside iframe {
     }
 }
 /* Vista de escritorio */
-@media screen and (min-width: 1001px) {
+@media screen and (min-width: 992px) {
     .content-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -348,7 +348,7 @@ aside iframe {
     grid-area: derechos;
 }
 /* Media query para pantallas de móvil */
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .footer {
         display: flex;
         flex-direction: column;
