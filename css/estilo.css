@@ -152,9 +152,12 @@ nav a:hover{
 }
 body{
     margin: 0;
-    background-color: white;
     font-family: sans-serif;
     font-weight: 400;
+    background: rgb(108,91,249);
+    background: linear-gradient( 146deg, rgba(108,91,249,1) 0%, rgba(87,227,255,1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 /*Contenido*/
 main {
@@ -271,7 +274,7 @@ aside iframe {
 }
 .footer {
     width: 100%;
-    background-image: linear-gradient(#79c779, #5cae5c);
+    background-image: linear-gradient(#98fb98,rgb(42, 138, 125));
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 300px;
