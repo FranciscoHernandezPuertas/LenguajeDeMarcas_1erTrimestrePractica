@@ -11,7 +11,7 @@ Móvil: todo el contenido se visualiza en modo columna, mostrándose el contenid
 aside entre la imagen y el resto del contenido del main.
 */
 *, *::before, *::after{
-    box-sizing: border-box;
+    box-sizing: border-box; /*Utilizamos la propiedad border-box en todos los elementos para poder controlar tamaños específicos*/
 }
 /*Navbar (https://www.youtube.com/watch?v=xQstBIPeOdU)*/
 header {
@@ -216,16 +216,22 @@ aside iframe {
 }
 /* Vista de móvil */
 @media screen and (max-width: 800px) {
-    .content-container {
-        display: block; /* Cambiar a bloque para apilar en móvil */
+    /* Agregar reglas de flex para la vista móvil */
+    .content {
+        display: flex;
+        flex-direction: column; /* Apilar elementos verticalmente */
+        align-items: center; /* Centrar horizontalmente */
+    }
+    .content .responsive {
+        width: 100%; /* Asegurar el ancho completo */
     }
     .ubicacion-aside {
-        padding-top: 20px; /* Ajusta el padding para separar */
+        padding-top: 20px; /* Ajustar el padding */
         font-weight: bolder;
         font-size: large;
+        margin-top: 20px; /* Espacio entre contenido y aside */
     }
 }
-
 /* Vista de tablet */
 @media screen and (min-width: 801px) and (max-width: 1000px) {
     .content-container {
@@ -360,5 +366,24 @@ aside iframe {
     .contactoUrl,
     .acercadeUrl {
         text-align: center;
+        display: flex;
+        align-items: center; /* Alinea elementos verticalmente */
+    }
+
+    .contactoUrl a,
+    .acercadeUrl a {
+        text-decoration: none;
+        color: darkgreen;
+        transition: .5s;
+        display: flex;
+        align-items: center; /* Alinea elementos verticalmente */
+        justify-content: center; /* Centra elementos horizontalmente */
+    }
+
+    /* Agregar margen a las imágenes para separarlas del texto */
+    .contactoUrl img,
+    .acercadeUrl img {
+        margin-left: 0.5em;
+        margin-top: 0; /* Restablece el margen superior */
     }
 }
