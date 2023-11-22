@@ -1,3 +1,7 @@
+@font-face {
+    font-family: DosisRegular;
+    src: url(../fonts/Dosis-Regular.ttf);
+}
 /*El header, nav y footer deben ocupar todo el ancho del navegador. 
 El  header  y  el  footer  deben  contener,  entre  otras  cosas,  imágenes  que  sean  enlaces  (se 
 comparten las utilizadas como muestra). 
@@ -152,7 +156,7 @@ nav a:hover{
 }
 body{
     margin: 0;
-    font-family: sans-serif;
+    font-family: DosisRegular;
     font-weight: 400;
     background: rgb(108,91,249);
     background: linear-gradient( 146deg, rgba(108,91,249,1) 0%, rgba(87,227,255,1) 100%);
@@ -210,9 +214,10 @@ main {
 }
 aside iframe {
     max-width: 100%; /* Para evitar que el iframe exceda el ancho del aside */
-    height: auto; /* Ajustar la altura automáticamente */
+    height: 500px; /* Ajustar la altura automáticamente */
     display: block; /* Asegurar que el iframe sea un bloque */
     overflow: hidden; /* Ocultar el contenido que exceda el ancho del iframe */
+    border-radius: 5px;
 }
 /* Vista de móvil */
 @media screen and (max-width: 600px) {
@@ -230,6 +235,7 @@ aside iframe {
         padding-top: 20px; /* Ajustar el padding */
         font-weight: bolder;
         font-size: large;
+        text-align: center;
         margin-top: 20px; /* Espacio entre contenido y aside */
     }
 }
@@ -242,9 +248,10 @@ aside iframe {
     }
     .ubicacion-aside {
         grid-column: 2; /* Colocar el aside a la derecha */
-        padding-top: 158px;
+        padding-top: 125px;
         font-weight: bolder;
         font-size: large;
+        text-align: right;
     }
 }
 /* Vista de escritorio */
@@ -260,6 +267,7 @@ aside iframe {
         padding-top: 125px;
         font-weight: bolder;
         font-size: large;
+        text-align: left;
     }
     .content {
         grid-column: 2; /* Colocar el contenido a la derecha */
