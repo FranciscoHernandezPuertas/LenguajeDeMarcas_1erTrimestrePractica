@@ -221,6 +221,7 @@ aside iframe {
         display: flex;
         flex-direction: column; /* Apilar elementos verticalmente */
         align-items: center; /* Centrar horizontalmente */
+        text-align: center;
     }
     .content .responsive {
         width: 100%; /* Asegurar el ancho completo */
