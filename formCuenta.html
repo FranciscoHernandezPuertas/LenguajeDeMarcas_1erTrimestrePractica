@@ -5,38 +5,89 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="imagenes/folder_shopping.png" type="image/x-icon">
         <title>Todeto - Creación de Cuenta</title>
-        <link rel="stylesheet" href="css/fondo.css">
+        <link rel="stylesheet" href="css/estiloFormularios.css">
     </head>
     <body>
-        <p>Formulario de creacion de cuenta</p>
-        <form action="prueba.html" method="post">
-            <fieldset>
-                <legend>Datos Personales:</legend>
-                <p><label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Alexander" name="nombre" required autofocus></p>
+        <header>
+            <h1 class="logo"><a href="index.html"><img src="imagenes/home_assistant.png" alt="Inicio Logo" width="50px"></a></h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul class="nav-menu-items">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Prueba1</a></li>
+                    <li><a href="#">Prueba2</a></li>
+                    <li><a href="#">Prueba3</a></li>
+                    <li><a href="formContact.html" target="_blank">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="nav-item-right">
+                <a href="formCuenta.html" target="_blank">
+                    <img src="imagenes/contacts_v3.png" width="50px" alt="Imagen derecha">
+                </a>
+            </div>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span><img src="imagenes/pingtools.png" alt="Menú Navegación" width="50px"></span>
+            </label>
+        </header>
+        <main>
+            <div class="content">
+            <p>Formulario de creacion de cuenta</p>
+            <form action="prueba.html" method="post">
+                <fieldset>
+                    <legend>Datos Personales:</legend>
+                    <p><label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Alexander" name="nombre" required autofocus></p>
 
-                
-                <p><label for="apellidos">Apellidos:</label>
-                <input type="text" id="apellidos" placeholder="Perez Jimenez" name="apellidos" required autofocus></p>
+                    
+                    <p><label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" placeholder="Perez Jimenez" name="apellidos" required autofocus></p>
 
-                <p><label for="nacimiento">Fecha de nacimiento:</label>
-                <input type="date" id="nacimiento" placeholder="MM/DD/YYYY" required autofocus></p>
-            </fieldset>
-            <fieldset>
-                <legend>Contacto:</legend>
-                <p><label for="email">Introduzca su correo electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="example@example.org"></p>
-    
-    
-                <p><label for="password">Introduzca su contraseña:</label>
-                <input type="password" id="password" name="password"></p>
-                
+                    <p><label for="nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="nacimiento" placeholder="MM/DD/YYYY" required autofocus></p>
 
-                <p><label for="number">Introduzca su numero de teléfono (opcional):</label>
-                <input type="number" id="number" name="number" placeholder="+00 000 00 00 00"></p>
-            </fieldset>
-            <p><input type="submit" value="Enviar">
-                <input type="reset" value="Restablecer Formulario"></p>
-        </form>
+                    <p><label for="foto">Seleccione una imagen como foto de perfil:</label>
+                    <input type="file" id="foto" required autofocus></p>
+                </fieldset>
+                <fieldset>
+                    <legend>Contacto:</legend>
+                    <p><label for="email">Introduzca su correo electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="example@example.org"></p>
+        
+        
+                    <p><label for="password">Introduzca su contraseña:</label>
+                    <input type="password" id="password" name="password"></p>
+                    
+
+                    <p><label for="number">Introduzca su numero de teléfono (opcional):</label>
+                    <input type="tel" id="number" name="number" placeholder="+00 000 00 00 00" maxlength="12"></p>
+                </fieldset>
+                <fieldset>
+                    <legend>Preferencias y Otros...</legend>
+                    <p><label for="preferencias">Preferencias:</label></p>
+                </fieldset>
+                <p><input type="submit" value="Enviar">
+                    <input type="reset" value="Restablecer Formulario"></p>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div class="divisor divisor-bg"></div>
+            <div class="footer">
+                <div class="textoFooter">ToDeTo</div>
+                <div class="contactoUrl">
+                    <a href="formContact.html">
+                        Contacto
+                        <img src="imagenes/jio_call.png" alt="Icono de contacto" width="50px">
+                    </a>
+                </div>
+                <div class="acercadeUrl">
+                    <a href="acercaDe.html">
+                        Acerca De
+                        <img src="imagenes/imgur.png" alt="Icono de Acerca de" width="50px">
+                    </a>
+                </div>
+                <div class="derechos">&copy Todos los derechos reservados, 2023</div>
+            </div>
+        </footer>
     </body>
 </html>
