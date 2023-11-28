@@ -2,18 +2,6 @@
     font-family: DosisRegular;
     src: url(../fonts/Dosis-Regular.ttf);
 }
-/*El header, nav y footer deben ocupar todo el ancho del navegador. 
-El  header  y  el  footer  deben  contener,  entre  otras  cosas,  imágenes  que  sean  enlaces  (se 
-comparten las utilizadas como muestra). 
-El main debe estar centrado ocupando un ancho menor. 
-La parte del main debe comenzar mostrando una imagen. 
-Debe contener un iframe. 
-La página principal se mostrará en vista ordenador como se considere mejor, y debe modificar 
-su maquetación a otras vistas de la siguiente manera: 
-Tablet: igual que en modo ordenador, pero cambiando de lado la visualización del aside. 
-Móvil: todo el contenido se visualiza en modo columna, mostrándose el contenido del 
-aside entre la imagen y el resto del contenido del main.
-*/
 *, *::before, *::after{
     box-sizing: border-box; /*Utilizamos la propiedad border-box en todos los elementos para poder controlar tamaños específicos*/
 }
@@ -162,64 +150,102 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-/*Contenido*/
+/* Main */
 main {
     max-width: 1200px; /* Ancho máximo para el contenido principal */
     margin: 0 auto; /* Centrar el contenido principal */
     padding: 20px; /* Espaciado interno para el contenido principal */
 }
+.titulocontent{
+    padding-top: 50px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 3em;
+}
 .content {
+    font-size: 20px;
+    margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
+    padding-top: 50px;
+    position: relative;
+    width: 100%;
     min-height: 65vh; /* Cambiado a min-height para permitir que el contenido se expanda */
     display: grid;
     place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Usamos grid auto-fit para ajustar las columnas automáticamente */
-    gap: 20px; /* Espacio entre las imágenes */
-    margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
-    padding-top: 100px;
-    position: relative;
+    gap: 20px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "area1 area2"
+        "area3 area4"
+        "botones botones";
 }
-.content img {
-    max-width: 100%; /* Las imágenes se ajustarán al tamaño del contenedor */
-    height: auto;
-}
-.content h1{
+.radio {
     text-align: center;
-    margin-bottom: 20px;
-    grid-column: 1 / -1; /* Ocupar todas las columnas disponibles */
-    position: relative; /* Cambiar a posición relativa */
-    z-index: 2; /* Asegurar que el texto del h1 esté por encima de las imágenes */
+    font-size: 1em;
+    font-weight: bold;
+    align-self: center;
+    grid-area: area1;
 }
-.gallery {
-    border: 5px solid palegreen;
-    border-radius: 5px;
-    box-sizing: border-box;
-    position: relative;
-}
-.gallery:hover {   /*imagenes de la galería al pasar cursor por encima*/
-    border: 5px solid #79c779;
-    border-radius: 5px;
-}
-.content .descripcionImg {
+.datos {
     text-align: center;
-    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: center;
+    grid-area: area2;
 }
-.content .responsive .gallery .descripcionImg a {
-    text-decoration: none;
-    color: black;
+.contacto {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: center;
+    grid-area: area3;
 }
-.descripcionTexto {
-    text-decoration: none;
-    color: black;
+.otros {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: center;
+    grid-area: area4;
 }
-aside iframe {
-    max-width: 100%; /* Para evitar que el iframe exceda el ancho del aside */
-    height: 500px; /* Ajustar la altura automáticamente */
-    display: block; /* Asegurar que el iframe sea un bloque */
-    overflow: hidden; /* Ocultar el contenido que exceda el ancho del iframe */
+.envio {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: center;
+    grid-area: botones;
+}
+
+/* Ampliacion del espacio que ocupan los fieldset */
+fieldset{
     border-radius: 5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(73, 60, 255);
 }
-/* Vista de móvil */
-@media screen and (max-width: 600px) {
+
+
+/* Edición del formato de los input */
+.InputTexto{
+    border: 0;
+    border-radius: 7px;
+}
+
+.InputOtros {
+    border-radius: 10px;
+}
+
+/* Vista de escritorio */
+@media screen and (min-width: 992px) {
+    .content-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+}
+
+/* Vista para tablet y móvil */
+@media screen and (max-width: 991px) {
     /* Agregar reglas de flex para la vista móvil */
     .content {
         display: flex;
@@ -229,47 +255,6 @@ aside iframe {
     }
     .content .responsive {
         width: 100%; /* Asegurar el ancho completo */
-    }
-    .ubicacion-aside {
-        padding-top: 20px; /* Ajustar el padding */
-        font-weight: bolder;
-        font-size: large;
-        text-align: center;
-        margin-top: 20px; /* Espacio entre contenido y aside */
-    }
-}
-/* Vista de tablet */
-@media screen and (min-width: 601px) and (max-width: 992px) {
-    .content-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    .ubicacion-aside {
-        grid-column: 2; /* Colocar el aside a la derecha */
-        padding-top: 125px;
-        font-weight: bolder;
-        font-size: large;
-        text-align: right;
-    }
-}
-/* Vista de escritorio */
-@media screen and (min-width: 992px) {
-    .content-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    .ubicacion-aside {
-        grid-column: 1; /* Colocar el aside a la izquierda */
-        grid-row: 1; /* Colocar el aside en la primera fila */
-        padding-top: 125px;
-        font-weight: bolder;
-        font-size: large;
-        text-align: left;
-    }
-    .content {
-        grid-column: 2; /* Colocar el contenido a la derecha */
     }
 }
 /*Footer: https://getwaves.io/*/
