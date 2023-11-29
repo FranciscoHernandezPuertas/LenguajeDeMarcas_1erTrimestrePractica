@@ -1,0 +1,56 @@
+.content{
+    padding-top: 100px;
+}
+table, th, td {
+    box-sizing: border-box; /* Agregado para incluir el borde y el relleno en el ancho y alto total */
+    border-spacing: 5px;
+}
+table {
+    width: 100%;
+    border-collapse:separate; /* Agregado para separar los bordes de las celdas */
+}
+th, td{
+    border: 0px;
+    border-style: solid;
+}
+.captionTabla {
+    font-weight: bold;
+}
+
+p, td {
+    margin: 0;
+    text-align: center;
+}
+/* Bordes y Estilos Extra sobre la tabla */
+
+table {
+    border-radius: 10px;
+}
+
+th, td {
+    width: 16.67%; /* Ajustar el ancho para dividir equitativamente en 6 columnas (100% / 6) */
+}
+
+th {
+    background-color: lightgreen;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+td {
+    background-color: aqua;
+    border-radius: 5px;
+}
+.captionTabla{
+    background-color: rgb(72, 29, 158);
+    color: white;
+    border-radius: 5px;
+    font-size:normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.footerTabla{
+    background-color: rgb(72, 29, 158);
+    color: white;
+}

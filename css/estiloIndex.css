@@ -1,3 +1,14 @@
+/* Estilos para el contenido principal */
+.content {
+    min-height: 65vh; /* Altura mínima */
+    display: grid; /* Usa grid */
+    place-items: center; /* Centra elementos en el grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptables */
+    gap: 20px; /* Espacio entre imágenes */
+    margin-bottom: 100px; /* Margen inferior */
+    padding-top: 100px; /* Relleno superior */
+    position: relative; /* Posición relativa */
+}
 /* Estilos para las imágenes dentro del contenido */
 .content img {
     max-width: 100%; /* Ajusta el tamaño máximo de las imágenes al contenedor */
