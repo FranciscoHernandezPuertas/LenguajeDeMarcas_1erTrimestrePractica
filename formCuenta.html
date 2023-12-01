@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="imagenes/folder_shopping.png" type="image/x-icon">
         <title>Todeto - Creación de Cuenta</title>
+        <link rel="stylesheet" href="css/estiloGeneral.css">
         <link rel="stylesheet" href="css/estiloFormularioCuenta.css">
     </head>
     <body>
@@ -38,9 +39,11 @@
                     <div class="radio">
                         <fieldset>
                             <legend>Tipo de cuenta:</legend>
-                            <p><input type="radio" name="cuenta" id="personal" value="personal"> Personal </p>
-                            <p><input type="radio" name="cuenta" id="empresa" value="empresa"> Empresarial </p>
-                            <p><input type="radio" name="cuenta" id="educativa" value="educativa"> Educativa </p>
+                            <div class="contenidoRadio">
+                                <p><input type="radio" name="cuenta" id="personal" value="personal"> Personal </p>
+                                <p><input type="radio" name="cuenta" id="empresa" value="empresa"> Empresarial </p>
+                                <p><input type="radio" name="cuenta" id="educativa" value="educativa"> Educativa </p>
+                            </div>
                         </fieldset>
                     </div>
                     <div class="datos">
@@ -57,7 +60,7 @@
                             <input type="date" id="nacimiento" placeholder="MM/DD/YYYY" required autofocus class="InputTexto"></p>
 
                             <p><label for="foto">Seleccione una imagen de perfil:</label>
-                            <input type="file" id="foto" required autofocus ></p>
+                            <input type="file" id="foto" class="file" required autofocus ></p>
 
                             <p><label for="dir">Introduzca su Dirección:</label>
                             <input type="text" name="dir" id="dir" placeholder="Calle Mayor 23" class="InputTexto"></p>
