@@ -92,13 +92,15 @@
         height: 100%;
     }
 
-/* Añadimos un botón para adjuntar un archivo en "Seleccione una imagen de perfil" */
+/* Formato del botón para adjuntar un archivo en "Seleccione una imagen de perfil" */
+/* Modificamos su posición */
     .imagenPerfil {
         position: relative;
         overflow: hidden;
         display: inline-block;
     }
     
+/* Modificamos su estilo */
     .botonFoto {
         border: none;
         color: palegreen;
@@ -109,6 +111,7 @@
         font-weight: bold;
     }
     
+/* Indicamos la posición y tamaño del texto */
     .imagenPerfil input[type=file] {
         font-size: 100px;
         position: absolute;
@@ -118,36 +121,37 @@
     }
 
 /* Modificamos el estilo de los radio button */
+/* Indicamos que el radio por defecto se oculte */
     radio{
         visibility: hidden;
     }
-    [type="radio"]:checked,
-    [type="radio"]:not(:checked) {
+
+/* Indicamos su posicion tanto si esta marcado como si no */
+    [type="radio"]:checked, [type="radio"]:not(:checked) {
         position: absolute;
     }
-    [type="radio"]:checked + label,
-    [type="radio"]:not(:checked) + label
-    {
+    [type="radio"]:checked + label, [type="radio"]:not(:checked) + label {
         position: relative;
         padding-left: 28px;
         cursor: pointer;
         line-height: 20px;
         display: inline-block;
     }
-    [type="radio"]:checked + label:before,
-    [type="radio"]:not(:checked) + label:before {
+    [type="radio"]:checked + label:before, [type="radio"]:not(:checked) + label:before {
         content: '';
         position: absolute;
         left: 0;
         top: 0;
         width: 18px;
         height: 18px;
-        border: 1px solid  rgb(73, 60, 255);
+        /* Indicamos el color que tendrá su fondo */
+            border: 1px solid  rgb(73, 60, 255);
+            background:  rgb(73, 60, 255);
         border-radius: 100%;
-        background:  rgb(73, 60, 255);
     }
-    [type="radio"]:checked + label:after,
-    [type="radio"]:not(:checked) + label:after {
+
+/* Establecemos aspectos del radio una vez marcado, como el color del punto o la transición del mismo */
+    [type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
         content: '';
         width: 12px;
         height: 12px;
@@ -171,24 +175,25 @@
     }
 
 /* Modificación del estilo de los checkbox */
+/* Especificamos apariencia general de todos los checkbox */
     input[type="checkbox"]{
         -webkit-appearance: none;
         appearance: none;
-        background-color:  rgb(73, 60, 255);
+        /* Fondo de la casilla */
+            background-color:  rgb(73, 60, 255); 
+            color:  rgb(73, 60, 255);
         margin-left: 10px;
-        color:  rgb(73, 60, 255);
         width: 20px;
         height: 20px;
-        border-color:  palegreen;
-        border: none;
-        transform: translateY(4px);
-        cursor: pointer;
-        padding: 3px;
+        /* Estilo del borde */
+            border-color:  palegreen;
+            border: none;
+            transform: translateY(4px);
+            cursor: pointer;
+            padding: 3px;
+            border-radius: 3px;
     }
     
-    input[type="checkbox"] {
-        border-radius: 3px;
-    }
     .InputOtros::before {
         display: block;
         content: "";
@@ -198,12 +203,14 @@
         box-shadow: inset 14px 14px palegreen;
     }
     input[type="checkbox"]::before {
-        transform-origin: bottom left;
-        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-        transform: scale(0);
+        /* Animación al marcar una casilla */
+            transform-origin: bottom left;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+            transform: scale(0); /* Tamaño de la pluma de la casilla sin marcar */
     }
     
     input[type="checkbox"]:checked::before {
+        /* Tamaño de la pluma en una casilla marcada */
         transform: scale(1);
     }
 

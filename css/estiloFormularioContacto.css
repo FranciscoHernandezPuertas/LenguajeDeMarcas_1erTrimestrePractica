@@ -36,8 +36,6 @@
         width: 100%;
 
     }
-
-
     .opciones{
         text-align: center;
         font-size: 1em;
@@ -48,8 +46,6 @@
         width: 100%;
         
     }
-
-
     .explicacion{
         text-align: center;
         font-size: 1em;
@@ -60,8 +56,6 @@
         width: 100%;
         
     }
-
-
     .botones{
         text-align: center;
         font-size: 1em;
@@ -74,17 +68,20 @@
 
 /* Ampliacion del espacio que ocupan los fieldset y añadir su estilo */
     fieldset{
-        border-radius: 10px;
-        border-width: 10px;
-        border-style: solid;
-        border-color: rgb(73, 60, 255);
+        /* Espacio y orientación */
         height: 100%;
         width: 100%;
         justify-content: center;
         align-content: center;
+        /* Estilo */
+        border-radius: 10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: rgb(73, 60, 255);
     }
 
 /* Añadimos un estilo personalizado a nuestro select */
+/* Apariencia del selector sin deesplegar */
     select {
         -webkit-appearance:none;
         -moz-appearance:none;
@@ -111,6 +108,7 @@
         overflow: hidden;
         border-radius: 10px;
     }
+/* Estilo del boton que actua de desplegable */
     .estiloSelect::after {
         content: '\25BC';
         position: absolute;
@@ -154,7 +152,7 @@
         border-radius: 7px;
     }
 
-/* Modificamos los botones de enviar y reset */
+/* Modificamos el estilo de los botones de enviar y reset */
     .botonForm{
         border: none;
         background-color: palegreen;

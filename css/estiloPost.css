@@ -1,37 +1,4 @@
 /* Main */
-    .titulocontent{
-        padding-top: 50px;
-        text-align: center;
-        font-weight: bolder;
-        font-size: 3em;
-    }
-
-/* Añadimos un botón para adjuntar un archivo en "Seleccione una imagen de perfil" */
-    .volverInicio {
-        position: relative;
-        overflow: hidden;
-        display: inline-block;
-    }
-
-    .botonInicio {
-        border: none;
-        color: palegreen;
-        background-color: rgb(73, 60, 255);
-        padding: 8px 20px;
-        border-radius: 8px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    .volverInicio input[type=file] {
-        font-size: 100px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-    }
-
-
 /* Creamos reglas de orden para todo el contenido de la página */
     .content {
         font-size: 20px;
@@ -69,6 +36,27 @@
         height: 100%;
         width: 100%;
     }
+
+/* Modificamos el formato del botón para regresar al índice */
+    /* Indicamos su posicion */
+    .volverInicio {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    
+    /* Indicamos su estilo */
+    .botonInicio {
+        border: none;
+        color: palegreen;
+        background-color: rgb(73, 60, 255);
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    
 
 /* Ajustamos el texto del contenido de la página */
     .texto, .boton {
