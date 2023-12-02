@@ -1,3 +1,25 @@
+/*Estilos para la imágen del Black Friday*/
+.imagenBF{
+    box-sizing: border-box;
+    transition: .5s;
+    border-radius: 5px; /* Borde redondeado */
+    /*border: 5px transparent; Si no quisiésemos que hubiese un efecto en el que el borde "Crece", añadiríamos esto */
+}
+.imagenBF:hover{
+    border: 5px solid palegreen; /* Borde */
+    border-radius: 5px; /* Borde redondeado */
+    background-color: white;
+    transition: .5s;
+}
+.imagenBF img {
+    width: 500px;
+}
+.content-promotion{
+    display: grid;
+    place-items: center;
+    padding-top: 100px;
+    position: relative;
+}
 /* Estilos para el contenido principal */
 .content {
     min-height: 65vh; /* Altura mínima */
@@ -67,6 +89,17 @@ aside iframe {
 
 /* Media query para vista móvil */
 @media screen and (max-width: 600px) {
+    .content-promotion{
+        all:unset;
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column; /* Apila elementos verticalmente */
+        align-items: center; /* Centra horizontalmente */
+        text-align: center; /* Alinea al centro */
+    }
+    .imagenBF img {
+        width: 80vw; /*Tamaño según ancho de pantala*/
+    }
     .content {
         display: flex; /* Usa flexbox */
         flex-direction: column; /* Apila elementos verticalmente */

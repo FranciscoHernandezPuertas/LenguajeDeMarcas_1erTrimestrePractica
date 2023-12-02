@@ -1,0 +1,36 @@
+h1 {
+  color: palegreen;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  padding-top: 100px;
+}
+
+.highlight {
+  background-color: #ffcc00;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.blue-text {
+  color: #007bff;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
