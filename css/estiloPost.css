@@ -96,7 +96,7 @@
 /* Vista para tablet y móvil */
     @media screen and (max-width: 991px) {
         /* Agregar reglas de flex para la vista móvil */
-            .content {
+            .content, .texto, .boton {
                 display: flex;
                 flex-direction: column; /* Apilar elementos verticalmente */
                 align-items: center; /* Centrar horizontalmente */
@@ -104,12 +104,5 @@
             }
             .content .responsive {
                 width: 100%; /* Asegurar el ancho completo */
-            }
-            .contenidoRadio {
-                all:unset;
-                display: flex;
-                flex-direction: column;
-                place-items: center; /* Centrar contenido vertical y horizontalmente */
-                height: 100%;
             }
     }

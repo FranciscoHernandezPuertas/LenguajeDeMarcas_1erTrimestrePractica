@@ -118,6 +118,9 @@
     }
 
 /* Modificamos el estilo de los radio button */
+    radio{
+        visibility: hidden;
+    }
     [type="radio"]:checked,
     [type="radio"]:not(:checked) {
         position: absolute;
@@ -242,7 +245,7 @@
 /* Vista para tablet y móvil */
     @media screen and (max-width: 991px) {
         /* Agregar reglas de flex para la vista móvil */
-            .content {
+            .content, .contenidoContacto, .contenidoRadio {
                 display: flex;
                 flex-direction: column; /* Apilar elementos verticalmente */
                 align-items: center; /* Centrar horizontalmente */
@@ -250,13 +253,6 @@
             }
             .content .responsive {
                 width: 100%; /* Asegurar el ancho completo */
-            }
-            .contenidoRadio {
-                all:unset;
-                display: flex;
-                flex-direction: column;
-                place-items: center; /* Centrar contenido vertical y horizontalmente */
-                height: 100%;
             }
     }
     @media screen and (max-width: 400px){
