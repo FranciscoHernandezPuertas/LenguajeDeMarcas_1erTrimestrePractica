@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="imagenes/folder_shopping.png" type="image/x-icon">
         <title>Todeto - Creación de Cuenta</title>
+        <link rel="stylesheet" href="css/estiloGeneral.css">
         <link rel="stylesheet" href="css/estiloFormularioCuenta.css">
     </head>
     <body>
@@ -14,9 +15,9 @@
             <nav>
                 <ul class="nav-menu-items">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#">Prueba1</a></li>
-                    <li><a href="#">Prueba2</a></li>
-                    <li><a href="#">Prueba3</a></li>
+                    <li><a href="envios.html">Envíos</a></li>
+                    <li><a href="acercaDe.html">Acerca de</a></li>
+                    <li><a href="formCuenta.html" target="_blank">Cuenta</a></li>
                     <li><a href="formContact.html" target="_blank">Contacto</a></li>
                 </ul>
             </nav>
@@ -38,9 +39,16 @@
                     <div class="radio">
                         <fieldset>
                             <legend>Tipo de cuenta:</legend>
-                            <p><input type="radio" name="cuenta" id="personal" value="personal"> Personal </p>
-                            <p><input type="radio" name="cuenta" id="empresa" value="empresa"> Empresarial </p>
-                            <p><input type="radio" name="cuenta" id="educativa" value="educativa"> Educativa </p>
+                            <div class="contenidoRadio">
+                                <p><input type="radio" name="cuenta" id="personal" value="personal">
+                                <label for="personal">Personal</label></p>
+
+                                <p><input type="radio" name="cuenta" id="empresa" value="empresa">
+                                <label for="empresa">Empresarial</label></p>
+
+                                <p><input type="radio" name="cuenta" id="educativa" value="educativa">
+                                <label for="educativa">Educativa</label></p>
+                            </div>
                         </fieldset>
                     </div>
                     <div class="datos">
@@ -55,9 +63,12 @@
 
                             <p><label for="nacimiento">Fecha de nacimiento:</label>
                             <input type="date" id="nacimiento" placeholder="MM/DD/YYYY" required autofocus class="InputTexto"></p>
-
+                            
                             <p><label for="foto">Seleccione una imagen de perfil:</label>
-                            <input type="file" id="foto" required autofocus ></p>
+                            <div class="imagenPerfil">
+                                <button class="botonFoto">Añadir foto</button>
+                                <input type="file" id="foto" class="file" name="miFoto" required autofocus ></p>
+                            </div>
 
                             <p><label for="dir">Introduzca su Dirección:</label>
                             <input type="text" name="dir" id="dir" placeholder="Calle Mayor 23" class="InputTexto"></p>
@@ -69,34 +80,45 @@
                     <div class="contacto">
                         <fieldset>
                             <legend>Contacto:</legend>
-                            <p><label for="email">Introduzca su correo electrónico:</label>
-                            <input type="email" id="email" name="email" placeholder="example@example.org" class="InputTexto"></p>
-                
-                
-                            <p><label for="password">Introduzca su contraseña:</label>
-                            <input type="password" id="password" name="password" class="InputTexto"></p>
-                            
+                            <div class="contenidoContacto">
+                                <p><label for="email">Introduzca su correo electrónico:</label>
+                                <input type="email" id="email" name="email" placeholder="example@example.org" class="InputTexto"></p>
+                    
+                    
+                                <p><label for="password">Introduzca su contraseña:</label>
+                                <input type="password" id="password" name="password" class="InputTexto"></p>
+                                
 
-                            <p><label for="number">Introduzca su numero de teléfono (opcional):</label>
-                            <input type="tel" id="number" name="number" placeholder="+00 000 00 00 00" maxlength="12" class="InputTexto"></p>
+                                <p><label for="number">Introduzca su numero de teléfono (opcional):</label>
+                                <input type="tel" id="number" name="number" placeholder="+00 000 00 00 00" maxlength="12" class="InputTexto"></p>
+                            </div>
                         </fieldset>
                     </div>
                     <div class="otros">
                         <fieldset>
                             <legend>Preferencias y Otros...</legend>
                             <p><label for="preferencias">Preferencias:</label></p>
-                            <p><input type="checkbox" name="monitor" id="monitor" class="InputOtros"> Monitores</p>
-                            <p><input type="checkbox" name="laptop" id="laptop" class="InputOtros"> Laptops</p>
-                            <p><input type="checkbox" name="gpu" id="gpu" class="InputOtros"> GPUs</p>
-                            <p><input type="checkbox" name="pc" id="pc" class="InputOtros"> PCs</p>
+
+                                <p><label for="monitor">Monitores</label>
+                                <input type="checkbox" name="monitor" id="monitor" class="InputOtros"></p>
+
+                                <p><label for="laptop">Laptops</label>
+                                <input type="checkbox" name="laptop" id="laptop" class="InputOtros"></p>
+
+                                <p><label for="gpu">GPUs</label>
+                                <input type="checkbox" name="gpu" id="gpu" class="InputOtros"></p>
+
+                                <p><label for="pc">PCs</label>
+                                <input type="checkbox" name="pc" id="pc" class="InputOtros"></p>
+
                         </fieldset>
                     </div>
                     <div class="envio">
-                        <p><input type="submit" value="Enviar">
-                        <input type="reset" value="Restablecer Formulario"></p>
+                        <p><input type="submit" value="Enviar" class="botonForm">
+                        <input type="reset" value="Restablecer Formulario" class="botonForm"></p>
                     </div>
-                    </form>
                 </div>
+            </form>
         </main>
         <footer>
             <div class="divisor divisor-bg"></div>
