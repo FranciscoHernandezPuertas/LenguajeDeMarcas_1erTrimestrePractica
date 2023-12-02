@@ -1,341 +1,341 @@
 /* Importación de la fuente DosisRegular */
-@font-face {
-    font-family: DosisRegular; /* Define el nombre de la fuente */
-    src: url(../fonts/Dosis-Regular.ttf); /* Ruta de la fuente personalizada */
-}
+    @font-face {
+        font-family: DosisRegular; /* Define el nombre de la fuente */
+        src: url(../fonts/Dosis-Regular.ttf); /* Ruta de la fuente personalizada */
+    }
 
 /* Estilos globales */
-*, *::before, *::after {
-    box-sizing: border-box; /* Utilizamos border-box para controlar los tamaños de los elementos */
-}
+    *, *::before, *::after {
+        box-sizing: border-box; /* Utilizamos border-box para controlar los tamaños de los elementos */
+    }
 
 /* Estilos para el encabezado */
 /* Navbar (Video de referencia: https://www.youtube.com/watch?v=xQstBIPeOdU) */
-header {
-    background-color: palegreen; /* Color de fondo del encabezado */
-    text-align: center; /* Alineación del texto al centro */
-    position: fixed; /* Fija el encabezado en la parte superior */
-    width: 100%; /* Ancho completo del encabezado */
-    z-index: 999; /* Asegurarnos de que la navbar está superpuesta sobre otros elementos */
-}
+    header {
+        background-color: palegreen; /* Color de fondo del encabezado */
+        text-align: center; /* Alineación del texto al centro */
+        position: fixed; /* Fija el encabezado en la parte superior */
+        width: 100%; /* Ancho completo del encabezado */
+        z-index: 999; /* Asegurarnos de que la navbar está superpuesta sobre otros elementos */
+    }
 
 /* Alineación del logo y del "Botón" de menú */
-.logo {
-    display: inline-block; /* Mostrar como bloque en línea */
-    vertical-align: middle; /* Alineación vertical */
-    margin: 0; /* Sin márgenes */
-    padding-top: 3px; /* Espaciado superior */
-}
-
-.nav-toggle-label {
-    display: inline-block; /* Mostrar como bloque en línea */
-    vertical-align: middle; /* Alineación vertical */
-    margin-left: 1em; /* Margen a la izquierda */
-}
+    .logo {
+        display: inline-block; /* Mostrar como bloque en línea */
+        vertical-align: middle; /* Alineación vertical */
+        margin: 0; /* Sin márgenes */
+        padding-top: 3px; /* Espaciado superior */
+    }
+    
+    .nav-toggle-label {
+        display: inline-block; /* Mostrar como bloque en línea */
+        vertical-align: middle; /* Alineación vertical */
+        margin-left: 1em; /* Margen a la izquierda */
+    }
 
 /* Estilos para la navegación */
-nav {
-    position: absolute; /* Posición absoluta */
-    text-align: left; /* Alineación del texto a la izquierda */
-    top: 100%; /* Desde la parte inferior del header */
-    left: 0; /* Alineación a la izquierda */
-    background-color: palegreen; /* Color de fondo */
-    width: 100%; /* Ancho completo */
-    display: flex; /* Usar flexbox */
-    flex-direction: row; /* Dirección de los elementos */
-    /* Animación sin desplegar */
-    transform: scale(1, 0); /* Inicialmente oculto */
-    transform-origin: top; /* Punto de origen de la transformación */
-    transition: transform 400ms ease-in-out; /* Transición suave */
-}
+    nav {
+        position: absolute; /* Posición absoluta */
+        text-align: left; /* Alineación del texto a la izquierda */
+        top: 100%; /* Desde la parte inferior del header */
+        left: 0; /* Alineación a la izquierda */
+        background-color: palegreen; /* Color de fondo */
+        width: 100%; /* Ancho completo */
+        display: flex; /* Usar flexbox */
+        flex-direction: row; /* Dirección de los elementos */
+        /* Animación sin desplegar */
+        transform: scale(1, 0); /* Inicialmente oculto */
+        transform-origin: top; /* Punto de origen de la transformación */
+        transition: transform 400ms ease-in-out; /* Transición suave */
+    }
 
 /* Estilos para la lista de navegación */
-nav ul {
-    margin: 0; /* Sin margen */
-    padding: 0; /* Sin relleno */
-    list-style: none; /* Sin viñetas en la lista */
-}
+        nav ul {
+            margin: 0; /* Sin margen */
+            padding: 0; /* Sin relleno */
+            list-style: none; /* Sin viñetas en la lista */
+        }
 
-nav li {
-    margin-bottom: 1em; /* Espaciado inferior */
-    margin-left: 1em; /* Margen a la izquierda */
-}
-
-nav a {
-    color: black; /* Color del texto */
-    text-decoration: none; /* Sin decoración de enlace */
-    font-size: 1.2em; /* Tamaño de la fuente */
-    text-transform: none; /* Transformación del texto */
-    opacity: 0; /* Inicialmente transparente */
-    transition: opacity 150ms ease-in-out ease; /* Transición suave */
-}
-
-nav a:hover {
-    color: blue; /* Color del texto al pasar el ratón */
-}
-
-/* Cambiar la visualización al presionar el botón */
-.nav-toggle:checked ~ nav {
-    transform: scale(1, 1); /* Animación desplegada */
-}
-
-/* Ocultar el botón de menú */
-.nav-toggle {
-    display: none; /* No mostrar */
-}
-
-/* Ocultar elementos del lado derecho */
-.nav-item-right {
-    display: none; /* No mostrar */
-}
-
-/* Estilos para la etiqueta del botón de menú */
-.nav-toggle-label {
-    position: absolute; /* Posición absoluta */
-    top: 0; /* Desde la parte superior */
-    left: 0; /* Desde la izquierda */
-    margin-left: 1em; /* Margen a la izquierda */
-    height: 100%; /* Altura completa */
-    display: flex; /* Usar flexbox */
-    align-items: center; /* Alinear verticalmente */
-}
-
-/* Mostrar texto después de la animación */
-.nav-toggle:checked ~ nav a {
-    opacity: 1; /* Mostrar el texto */
-    transition: opacity 250ms ease-in-out 250ms; /* Retraso de la animación */
-}
-
-/* Estilos específicos para pantallas superiores a 600px de ancho */
-@media screen and (min-width: 600px) {
-    /* Ocultar el botón de menú en pantallas grandes */
-    .nav-toggle-label {
-        display: none; /* No mostrar */
-    }
-
-    /* Estilos para el encabezado en pantallas grandes */
-    header {
-        display: grid; /* Utiliza grid */
-        grid-template-rows: auto; /* Tres filas iguales */
-        grid-template-columns: auto 1fr auto; /* Tres columnas: logo, texto, nav item right */
-        align-items: center; /* Alinea verticalmente los elementos */
-        justify-content: space-between; /* Espacio entre los elementos */
-        padding: 0 20px; /* Añade un poco de espacio alrededor de los elementos */
-        grid-template-areas:
-            "logo texto imagen"; /* Definición de áreas de la cuadrícula */
-    }
-
-    /* Estilos para el logo en pantallas grandes */
-    .logo {
-        grid-area: logo; /* Ubicación en el grid */
-        justify-self: start; /* Alineación hacia la izquierda */
-        margin: 0; /* Sin márgenes */
-    }
-
-    /* Estilos para la lista de navegación en pantallas grandes */
-    ul.nav-menu-items {
-        grid-area: texto; /* Ubicación en el grid */
-        display: grid; /* Usa grid */
-        gap: 20px; /* Espacio entre elementos */
-        padding: 0; /* Sin relleno */
-        list-style: none; /* Sin viñetas en la lista */
-    }
-
-    /* Estilos para la navegación en pantallas grandes */
-    nav {
-        all: unset; /* Restablece todos los estilos */
-        justify-self: center; /* Centra horizontalmente */
-        text-align: center; /* Alinea al centro */
-        margin: 0; /* Sin márgenes */
-        visibility: visible; /* Hace visible */
-    }
-
-    /* Estilos para la lista dentro de la navegación en pantallas grandes */
-    nav ul {
-        grid-auto-flow: column; /* Ajusta automáticamente el flujo de columnas */
-        gap: 20px; /* Espacio entre elementos */
-        align-items: center; /* Alinea verticalmente */
-        padding: 0; /* Sin relleno */
-    }
-
-    /* Estilos para los elementos de la lista de navegación en pantallas grandes */
     nav li {
-        margin: 0; /* Sin márgenes */
+        margin-bottom: 1em; /* Espaciado inferior */
+        margin-left: 1em; /* Margen a la izquierda */
     }
 
-    /* Estilos para los enlaces de la lista de navegación en pantallas grandes */
     nav a {
-        opacity: 1; /* Opacidad al 100% */
-        transition: .5s; /* Duración de la transición */
         color: black; /* Color del texto */
+        text-decoration: none; /* Sin decoración de enlace */
+        font-size: 1.2em; /* Tamaño de la fuente */
+        text-transform: none; /* Transformación del texto */
+        opacity: 0; /* Inicialmente transparente */
+        transition: opacity 150ms ease-in-out ease; /* Transición suave */
     }
 
     nav a:hover {
         color: blue; /* Color del texto al pasar el ratón */
-        transition: .5s; /* Duración de la transición */
     }
 
-    /* Estilos para el elemento de la derecha en pantallas grandes */
-    .nav-item-right {
-        all: unset; /* Restablece todos los estilos */
-        grid-area: imagen; /* Ubicación en el grid */
-        margin: 0; /* Sin márgenes */
-        visibility: visible; /* Hace visible */
-        justify-self: end; /* Alinea a la derecha */
+/* Cambiar la visualización al presionar el botón */
+    .nav-toggle:checked ~ nav {
+        transform: scale(1, 1); /* Animación desplegada */
     }
-}
+
+/* Ocultar el botón de menú */
+    .nav-toggle {
+        display: none; /* No mostrar */
+    }
+
+/* Ocultar elementos del lado derecho */
+    .nav-item-right {
+        display: none; /* No mostrar */
+    }
+
+/* Estilos para la etiqueta del botón de menú */
+    .nav-toggle-label {
+        position: absolute; /* Posición absoluta */
+        top: 0; /* Desde la parte superior */
+        left: 0; /* Desde la izquierda */
+        margin-left: 1em; /* Margen a la izquierda */
+        height: 100%; /* Altura completa */
+        display: flex; /* Usar flexbox */
+        align-items: center; /* Alinear verticalmente */
+    }
+    
+/* Mostrar texto después de la animación */
+    .nav-toggle:checked ~ nav a {
+        opacity: 1; /* Mostrar el texto */
+        transition: opacity 250ms ease-in-out 250ms; /* Retraso de la animación */
+    }
+
+/* Estilos específicos para pantallas superiores a 600px de ancho */
+    @media screen and (min-width: 600px) {
+        /* Ocultar el botón de menú en pantallas grandes */
+            .nav-toggle-label {
+                display: none; /* No mostrar */
+            }
+
+        /* Estilos para el encabezado en pantallas grandes */
+            header {
+                display: grid; /* Utiliza grid */
+                grid-template-rows: auto; /* Tres filas iguales */
+                grid-template-columns: auto 1fr auto; /* Tres columnas: logo, texto, nav item right */
+                align-items: center; /* Alinea verticalmente los elementos */
+                justify-content: space-between; /* Espacio entre los elementos */
+                padding: 0 20px; /* Añade un poco de espacio alrededor de los elementos */
+                grid-template-areas:
+                    "logo texto imagen"; /* Definición de áreas de la cuadrícula */
+            }
+
+        /* Estilos para el logo en pantallas grandes */
+            .logo {
+                grid-area: logo; /* Ubicación en el grid */
+                justify-self: start; /* Alineación hacia la izquierda */
+                margin: 0; /* Sin márgenes */
+            }
+
+        /* Estilos para la lista de navegación en pantallas grandes */
+            ul.nav-menu-items {
+                grid-area: texto; /* Ubicación en el grid */
+                display: grid; /* Usa grid */
+                gap: 20px; /* Espacio entre elementos */
+                padding: 0; /* Sin relleno */
+                list-style: none; /* Sin viñetas en la lista */
+            }
+
+        /* Estilos para la navegación en pantallas grandes */
+            nav {
+                all: unset; /* Restablece todos los estilos */
+                justify-self: center; /* Centra horizontalmente */
+                text-align: center; /* Alinea al centro */
+                margin: 0; /* Sin márgenes */
+                visibility: visible; /* Hace visible */
+            }
+
+        /* Estilos para la lista dentro de la navegación en pantallas grandes */
+            nav ul {
+                grid-auto-flow: column; /* Ajusta automáticamente el flujo de columnas */
+                gap: 20px; /* Espacio entre elementos */
+                align-items: center; /* Alinea verticalmente */
+                padding: 0; /* Sin relleno */
+            }
+
+        /* Estilos para los elementos de la lista de navegación en pantallas grandes */
+            nav li {
+                margin: 0; /* Sin márgenes */
+            }
+
+        /* Estilos para los enlaces de la lista de navegación en pantallas grandes */
+            nav a {
+                opacity: 1; /* Opacidad al 100% */
+                transition: .5s; /* Duración de la transición */
+                color: black; /* Color del texto */
+            }
+
+            nav a:hover {
+                color: blue; /* Color del texto al pasar el ratón */
+                transition: .5s; /* Duración de la transición */
+            }
+
+        /* Estilos para el elemento de la derecha en pantallas grandes */
+            .nav-item-right {
+                all: unset; /* Restablece todos los estilos */
+                grid-area: imagen; /* Ubicación en el grid */
+                margin: 0; /* Sin márgenes */
+                visibility: visible; /* Hace visible */
+                justify-self: end; /* Alinea a la derecha */
+            }
+    }
 
 /* Estilos para el cuerpo del documento */
-body {
-    margin: 0; /* Sin márgenes */
-    font-family: DosisRegular; /* Tipo de fuente */
-    font-weight: 400; /* Peso de la fuente */
-    background: linear-gradient(146deg, rgba(108,91,249,1) 0%, rgba(87,227,255,1) 100%); /* Fondo con gradiente lineal */
-    background-size: cover; /* Ajusta el tamaño del fondo */
-    background-repeat: no-repeat; /* No repetir el fondo */
-}
+    body {
+        margin: 0; /* Sin márgenes */
+        font-family: DosisRegular; /* Tipo de fuente */
+        font-weight: 400; /* Peso de la fuente */
+        background: linear-gradient(146deg, rgba(108,91,249,1) 0%, rgba(87,227,255,1) 100%); /* Fondo con gradiente lineal */
+        background-size: cover; /* Ajusta el tamaño del fondo */
+        background-repeat: no-repeat; /* No repetir el fondo */
+    }
 
 /* Estilos para la sección principal (main) */
-main {
-    max-width: 1200px; /* Ancho máximo */
-    margin: 0 auto; /* Centra horizontalmente */
-    padding: 20px; /* Espaciado interno */
-}
+    main {
+        max-width: 90%; /* Ancho máximo para el contenido principal */
+        margin: 0 auto; /* Centrar el contenido principal */
+        padding: 20px; /* Espaciado interno para el contenido principal */
+    }
 
 /* Estilos para el divisor */
-.divisor {
-    aspect-ratio: 900/250; /* Relación de aspecto */
-    width: 100%; /* Ancho completo */
-    background-repeat: no-repeat; /* No repetir el fondo */
-    background-position: center; /* Posición del fondo */
-    background-size: cover; /* Ajusta el tamaño del fondo */
-}
+    .divisor {
+        aspect-ratio: 900/250; /* Relación de aspecto */
+        width: 100%; /* Ancho completo */
+        background-repeat: no-repeat; /* No repetir el fondo */
+        background-position: center; /* Posición del fondo */
+        background-size: cover; /* Ajusta el tamaño del fondo */
+    }
 
 /* Estilos para el fondo del divisor */
-.divisor-bg {
-    background-image: url("../imagenes/wave.svg"); /* Imagen de fondo */
-    width: 100%; /* Ancho completo */
-}
+    .divisor-bg {
+        background-image: url("../imagenes/wave.svg"); /* Imagen de fondo */
+        width: 100%; /* Ancho completo */
+    }
 
 /* Estilos para el pie de página (footer) */
-.footer {
-    width: 100%; /* Ancho completo */
-    background-image: linear-gradient(#98fb98,rgb(42, 138, 125)); /* Fondo con gradiente lineal */
-    background-size: cover; /* Ajusta el tamaño del fondo */
-    background-repeat: no-repeat; /* No repetir el fondo */
-    min-height: 300px; /* Altura mínima */
-    display: grid; /* Usa grid */
-    grid-template-columns: auto auto auto; /* Tres columnas */
-    grid-template-rows: auto auto auto; /* Tres filas */
-    grid-template-areas: /* Definición de áreas */
-        "textoFooter textoFooter textoFooter"
-        "contactoUrl placeholder acercadeUrl"
-        "derechos derechos derechos";
-    gap: 0px; /* Espacio entre elementos */
-    padding-left: 2em; /* Relleno izquierdo */
-    padding-right: 2em; /* Relleno derecho */
-}
+    .footer {
+        width: 100%; /* Ancho completo */
+        background-image: linear-gradient(#98fb98,rgb(42, 138, 125)); /* Fondo con gradiente lineal */
+        background-size: cover; /* Ajusta el tamaño del fondo */
+        background-repeat: no-repeat; /* No repetir el fondo */
+        min-height: 300px; /* Altura mínima */
+        display: grid; /* Usa grid */
+        grid-template-columns: auto auto auto; /* Tres columnas */
+        grid-template-rows: auto auto auto; /* Tres filas */
+        grid-template-areas: /* Definición de áreas */
+            "textoFooter textoFooter textoFooter"
+            "contactoUrl placeholder acercadeUrl"
+            "derechos derechos derechos";
+        gap: 0px; /* Espacio entre elementos */
+        padding-left: 2em; /* Relleno izquierdo */
+        padding-right: 2em; /* Relleno derecho */
+    }
 
 /* Estilos para el texto del pie de página */
-.textoFooter {
-    text-align: center; /* Alinea al centro */
-    font-size: 3em; /* Tamaño de fuente */
-    font-weight: bolder; /* Peso de fuente */
-    align-self: center; /* Alineación vertical */
-    grid-area: textoFooter; /* Área del grid */
-}
+    .textoFooter {
+        text-align: center; /* Alinea al centro */
+        font-size: 3em; /* Tamaño de fuente */
+        font-weight: bolder; /* Peso de fuente */
+        align-self: center; /* Alineación vertical */
+        grid-area: textoFooter; /* Área del grid */
+    }
 
 /* Estilos para los enlaces de contacto y acerca de */
-.contactoUrl,
-.acercadeUrl {
-    text-align: right; /* Alinea a la derecha */
-    font-size: 1.5em; /* Tamaño de fuente */
-    align-self: center; /* Alineación vertical */
-}
-
-/* Estilos para los enlaces de contacto */
-.contactoUrl {
-    grid-area: contactoUrl; /* Área del grid */
-}
-
-/* Estilos para los enlaces de acerca de */
-.acercadeUrl {
-    grid-area: acercadeUrl; /* Área del grid */
-}
-
-/* Estilos para los enlaces dentro de contacto y acerca de */
-.contactoUrl a,
-.acercadeUrl a {
-    text-decoration: none; /* Sin decoración de texto */
-    color: darkgreen; /* Color del texto */
-    transition: .5s; /* Duración de la transición */
-    display: grid; /* Usa grid */
-    grid-template-columns: auto auto; /* Columnas para texto e imagen */
-    align-items: center; /* Alinea verticalmente */
-}
-
-/* Estilos para los enlaces de contacto y acerca de al pasar el ratón */
-.contactoUrl a:hover,
-.acercadeUrl a:hover {
-    color: blue; /* Cambia el color al pasar el ratón */
-    transition: .5s; /* Duración de la transición */
-}
-
-/* Estilos para las imágenes dentro de contacto y acerca de */
-.contactoUrl img,
-.acercadeUrl img {
-    margin-left: 0.5em; /* Espacio entre texto e imagen */
-}
-
-/* Estilos para los derechos de autor */
-.derechos {
-    text-align: center; /* Alinea al centro */
-    font-size: 1em; /* Tamaño de fuente */
-    align-self: center; /* Alineación vertical */
-    grid-area: derechos; /* Área del grid */
-}
-
-/* Media query para pantallas de móvil */
-@media (max-width: 600px) {
-    .footer {
-        display: flex; /* Usa flexbox */
-        flex-direction: column; /* Dirección de columna */
-        align-items: center; /* Alinea al centro */
-        padding: 20px; /* Espaciado interno */
-    }
-
-    /* Estilos para elementos del pie de página en pantallas de móvil */
-    .textoFooter,
-    .contactoUrl,
-    .acercadeUrl,
-    .derechos {
-        text-align: center; /* Alinea al centro */
-        margin-bottom: 10px; /* Margen inferior */
-    }
-
-    /* Estilos para contacto y acerca de en pantallas de móvil */
     .contactoUrl,
     .acercadeUrl {
-        text-align: center; /* Alinea al centro */
-        display: flex; /* Usa flexbox */
-        align-items: center; /* Alinea verticalmente */
+        text-align: right; /* Alinea a la derecha */
+        font-size: 1.5em; /* Tamaño de fuente */
+        align-self: center; /* Alineación vertical */
     }
 
-    /* Estilos para enlaces de contacto y acerca de en pantallas de móvil */
+/* Estilos para los enlaces de contacto */
+    .contactoUrl {
+        grid-area: contactoUrl; /* Área del grid */
+    }
+
+/* Estilos para los enlaces de acerca de */
+    .acercadeUrl {
+        grid-area: acercadeUrl; /* Área del grid */
+    }
+
+/* Estilos para los enlaces dentro de contacto y acerca de */
     .contactoUrl a,
     .acercadeUrl a {
         text-decoration: none; /* Sin decoración de texto */
         color: darkgreen; /* Color del texto */
         transition: .5s; /* Duración de la transición */
-        display: flex; /* Usa flexbox */
+        display: grid; /* Usa grid */
+        grid-template-columns: auto auto; /* Columnas para texto e imagen */
         align-items: center; /* Alinea verticalmente */
-        justify-content: center; /* Centra horizontalmente */
     }
 
-    /* Agregar espacios entre texto e imagen en pantallas de móvil */
+/* Estilos para los enlaces de contacto y acerca de al pasar el ratón */
+    .contactoUrl a:hover,
+    .acercadeUrl a:hover {
+        color: blue; /* Cambia el color al pasar el ratón */
+        transition: .5s; /* Duración de la transición */
+    }
+
+/* Estilos para las imágenes dentro de contacto y acerca de */
     .contactoUrl img,
     .acercadeUrl img {
         margin-left: 0.5em; /* Espacio entre texto e imagen */
-        margin-top: 0; /* Restablece el margen superior */
     }
-}
+
+/* Estilos para los derechos de autor */
+    .derechos {
+        text-align: center; /* Alinea al centro */
+        font-size: 1em; /* Tamaño de fuente */
+        align-self: center; /* Alineación vertical */
+        grid-area: derechos; /* Área del grid */
+    }
+
+/* Media query para pantallas de móvil */
+    @media (max-width: 600px) {
+        .footer {
+            display: flex; /* Usa flexbox */
+            flex-direction: column; /* Dirección de columna */
+            align-items: center; /* Alinea al centro */
+            padding: 20px; /* Espaciado interno */
+        }
+
+        /* Estilos para elementos del pie de página en pantallas de móvil */
+            .textoFooter,
+            .contactoUrl,
+            .acercadeUrl,
+            .derechos {
+                text-align: center; /* Alinea al centro */
+                margin-bottom: 10px; /* Margen inferior */
+            }
+
+        /* Estilos para contacto y acerca de en pantallas de móvil */
+            .contactoUrl,
+            .acercadeUrl {
+                text-align: center; /* Alinea al centro */
+                display: flex; /* Usa flexbox */
+                align-items: center; /* Alinea verticalmente */
+            }
+
+        /* Estilos para enlaces de contacto y acerca de en pantallas de móvil */
+            .contactoUrl a,
+            .acercadeUrl a {
+                text-decoration: none; /* Sin decoración de texto */
+                color: darkgreen; /* Color del texto */
+                transition: .5s; /* Duración de la transición */
+                display: flex; /* Usa flexbox */
+                align-items: center; /* Alinea verticalmente */
+                justify-content: center; /* Centra horizontalmente */
+            }
+
+        /* Agregar espacios entre texto e imagen en pantallas de móvil */
+            .contactoUrl img,
+            .acercadeUrl img {
+                margin-left: 0.5em; /* Espacio entre texto e imagen */
+                margin-top: 0; /* Restablece el margen superior */
+            }
+    }

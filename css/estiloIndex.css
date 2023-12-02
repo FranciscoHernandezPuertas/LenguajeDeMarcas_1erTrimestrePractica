@@ -1,122 +1,155 @@
+/*Estilos para la imágen del Black Friday*/
+    .imagenBF{
+        box-sizing: border-box;
+        transition: .5s;
+        border-radius: 5px; /* Borde redondeado */
+        /*border: 5px transparent; Si no quisiésemos que hubiese un efecto en el que el borde "Crece", añadiríamos esto */
+    }
+    .imagenBF:hover{
+        border: 5px solid palegreen; /* Borde */
+        border-radius: 5px; /* Borde redondeado */
+        background-color: white;
+        transition: .5s;
+    }
+    .imagenBF img {
+        width: 500px;
+    }
+    .content-promotion{
+        display: grid;
+        place-items: center;
+        padding-top: 100px;
+        position: relative;
+    }
 /* Estilos para el contenido principal */
-.content {
-    min-height: 65vh; /* Altura mínima */
-    display: grid; /* Usa grid */
-    place-items: center; /* Centra elementos en el grid */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptables */
-    gap: 20px; /* Espacio entre imágenes */
-    margin-bottom: 100px; /* Margen inferior */
-    padding-top: 100px; /* Relleno superior */
-    position: relative; /* Posición relativa */
-}
+    .content {
+        min-height: 65vh; /* Altura mínima */
+        display: grid; /* Usa grid */
+        place-items: center; /* Centra elementos en el grid */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptables */
+        gap: 20px; /* Espacio entre imágenes */
+        margin-bottom: 100px; /* Margen inferior */
+        padding-top: 100px; /* Relleno superior */
+        position: relative; /* Posición relativa */
+    }
 /* Estilos para las imágenes dentro del contenido */
-.content img {
-    max-width: 100%; /* Ajusta el tamaño máximo de las imágenes al contenedor */
-    height: auto; /* Ajusta la altura automáticamente */
-}
+    .content img {
+        max-width: 100%; /* Ajusta el tamaño máximo de las imágenes al contenedor */
+        height: auto; /* Ajusta la altura automáticamente */
+    }
 
 /* Estilos para el encabezado h1 */
-.content h1 {
-    text-align: center; /* Alinea al centro */
-    margin-bottom: 20px; /* Margen inferior */
-    grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
-    position: relative; /* Posición relativa */
-    z-index: 2; /* Establece la capa z encima de las imágenes */
-}
+    .content h1 {
+        text-align: center; /* Alinea al centro */
+        margin-bottom: 20px; /* Margen inferior */
+        grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+        position: relative; /* Posición relativa */
+        z-index: 2; /* Establece la capa z encima de las imágenes */
+    }
 
 /* Estilos para la galería de imágenes */
-.gallery {
-    border: 5px solid palegreen; /* Borde */
-    border-radius: 5px; /* Borde redondeado */
-    box-sizing: border-box; /* Tamaño del borde se incluye en la caja */
-    position: relative; /* Posición relativa */
-}
+    .gallery {
+        border: 5px solid palegreen; /* Borde */
+        border-radius: 5px; /* Borde redondeado */
+        box-sizing: border-box; /* Tamaño del borde se incluye en la caja */
+        position: relative; /* Posición relativa */
+    }
 
 /* Estilos al pasar el cursor por encima de la galería */
-.gallery:hover {
-    border: 5px solid #79c779; /* Cambio de borde al pasar el cursor */
-    border-radius: 5px; /* Borde redondeado */
-}
+    .gallery:hover {
+        border: 5px solid #79c779; /* Cambio de borde al pasar el cursor */
+        border-radius: 5px; /* Borde redondeado */
+    }
 
 /* Estilos para la descripción de la imagen */
-.content .descripcionImg {
-    text-align: center; /* Alinea al centro */
-    text-decoration: none; /* Sin decoración de texto */
-}
+    .content .descripcionImg {
+        text-align: center; /* Alinea al centro */
+        text-decoration: none; /* Sin decoración de texto */
+    }
 
 /* Estilos para los enlaces dentro de la descripción de la imagen */
-.content .responsive .gallery .descripcionImg a {
-    text-decoration: none; /* Sin decoración de texto */
-    color: black; /* Color del texto */
-}
+    .content .responsive .gallery .descripcionImg a {
+        text-decoration: none; /* Sin decoración de texto */
+        color: black; /* Color del texto */
+    }
 
 /* Estilos para la descripción del texto */
-.descripcionTexto {
-    text-decoration: none; /* Sin decoración de texto */
-    color: black; /* Color del texto */
-}
+    .descripcionTexto {
+        text-decoration: none; /* Sin decoración de texto */
+        color: black; /* Color del texto */
+    }
 
 /* Estilos para los iframes dentro del aside */
-aside iframe {
-    max-width: 100%; /* Ancho máximo */
-    height: 500px; /* Altura fija */
-    display: block; /* Como bloque */
-    overflow: hidden; /* Oculta el contenido que excede el ancho */
-    border-radius: 5px; /* Borde redondeado */
-}
+    aside iframe {
+        max-width: 100%; /* Ancho máximo */
+        height: 500px; /* Altura fija */
+        display: block; /* Como bloque */
+        overflow: hidden; /* Oculta el contenido que excede el ancho */
+        border-radius: 5px; /* Borde redondeado */
+    }
 
 /* Media query para vista móvil */
-@media screen and (max-width: 600px) {
-    .content {
-        display: flex; /* Usa flexbox */
-        flex-direction: column; /* Apila elementos verticalmente */
-        align-items: center; /* Centra horizontalmente */
-        text-align: center; /* Alinea al centro */
+    @media screen and (max-width: 600px) {
+        .content-promotion{
+            all:unset;
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column; /* Apila elementos verticalmente */
+            align-items: center; /* Centra horizontalmente */
+            text-align: center; /* Alinea al centro */
+        }
+        .imagenBF img {
+            width: 80vw; /*Tamaño según ancho de pantala*/
+        }
+        .content {
+            display: flex; /* Usa flexbox */
+            flex-direction: column; /* Apila elementos verticalmente */
+            align-items: center; /* Centra horizontalmente */
+            text-align: center; /* Alinea al centro */
+        }
+        .content .responsive {
+            width: 100%; /* Ancho completo */
+        }
+        .ubicacion-aside {
+            padding-top: 20px; /* Padding superior */
+            font-weight: bolder; /* Peso de la fuente */
+            font-size: large; /* Tamaño de la fuente */
+            text-align: center; /* Alinea al centro */
+            margin-top: 20px; /* Margen superior */
+        }
     }
-    .content .responsive {
-        width: 100%; /* Ancho completo */
-    }
-    .ubicacion-aside {
-        padding-top: 20px; /* Padding superior */
-        font-weight: bolder; /* Peso de la fuente */
-        font-size: large; /* Tamaño de la fuente */
-        text-align: center; /* Alinea al centro */
-        margin-top: 20px; /* Margen superior */
-    }
-}
 
 /* Media query para vista de tablet */
-@media screen and (min-width: 601px) and (max-width: 992px) {
-    .content-container {
-        display: grid; /* Usa grid */
-        grid-template-columns: 1fr 1fr; /* Dos columnas */
-        gap: 20px; /* Espacio entre columnas */
+    @media screen and (min-width: 601px) and (max-width: 992px) {
+        .content-container {
+            display: grid; /* Usa grid */
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            gap: 20px; /* Espacio entre columnas */
+        }
+        .ubicacion-aside {
+            grid-column: 2; /* Coloca el aside a la derecha */
+            padding-top: 125px; /* Padding superior */
+            font-weight: bolder; /* Peso de la fuente */
+            font-size: large; /* Tamaño de la fuente */
+            text-align: right; /* Alinea a la derecha */
+        }
     }
-    .ubicacion-aside {
-        grid-column: 2; /* Coloca el aside a la derecha */
-        padding-top: 125px; /* Padding superior */
-        font-weight: bolder; /* Peso de la fuente */
-        font-size: large; /* Tamaño de la fuente */
-        text-align: right; /* Alinea a la derecha */
-    }
-}
 
 /* Media query para vista de escritorio */
-@media screen and (min-width: 992px) {
-    .content-container {
-        display: grid; /* Usa grid */
-        grid-template-columns: 1fr 1fr; /* Dos columnas */
-        gap: 20px; /* Espacio entre columnas */
+    @media screen and (min-width: 992px) {
+        .content-container {
+            display: grid; /* Usa grid */
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            gap: 20px; /* Espacio entre columnas */
+        }
+        .ubicacion-aside {
+            grid-column: 1; /* Coloca el aside a la izquierda */
+            grid-row: 1; /* Coloca el aside en la primera fila */
+            padding-top: 125px; /* Padding superior */
+            font-weight: bolder; /* Peso de la fuente */
+            font-size: large; /* Tamaño de la fuente */
+            text-align: left; /* Alinea a la izquierda */
+        }
+        .content {
+            grid-column: 2; /* Coloca el contenido a la derecha */
+        }
     }
-    .ubicacion-aside {
-        grid-column: 1; /* Coloca el aside a la izquierda */
-        grid-row: 1; /* Coloca el aside en la primera fila */
-        padding-top: 125px; /* Padding superior */
-        font-weight: bolder; /* Peso de la fuente */
-        font-size: large; /* Tamaño de la fuente */
-        text-align: left; /* Alinea a la izquierda */
-    }
-    .content {
-        grid-column: 2; /* Coloca el contenido a la derecha */
-    }
-}

@@ -1,301 +1,199 @@
-@font-face {
-    font-family: DosisRegular;
-    src: url(../fonts/Dosis-Regular.ttf);
-}
-*, *::before, *::after{
-    box-sizing: border-box; /*Utilizamos la propiedad border-box en todos los elementos para poder controlar tamaños específicos*/
-}
-/*Navbar (https://www.youtube.com/watch?v=xQstBIPeOdU)*/
-header {
-    background-color: palegreen;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-}
-/*Alineamos logo y "Botón"*/
-.logo {
-    display: inline-block;
-    vertical-align: middle; /* Alinear verticalmente */
-    margin: 0; /* Asegurarse de que no haya márgenes */
-    padding-top: 3px;
-}
-.nav-toggle-label {
-    display: inline-block;
-    vertical-align: middle; /* Alinear verticalmente */
-    margin-left: 1em;
-}
-nav {
-    position: absolute;
-    text-align: left;
-    top: 100%;
-    left: 0;
-    background-color: palegreen;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    /*Animación sin desplegar*/
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 400ms ease-in-out;
-}
-nav ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-nav li{
-    margin-bottom: 1em;
-    margin-left: 1em;
-}
-nav a{
-    color: black;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: none;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out ease; /*Tiempo de la animación)*/
-}
-nav a:hover{
-    color: blue;
-}
-.nav-toggle:checked ~ nav { /*Buscamos por un hermano de toggle para hacer que al presionar el botón se muestre el contenido*/
-    transform: scale(1,1); /*Animación desplegada*/
-}
-.nav-toggle{
-    display: none;
-}
-.nav-item-right{
-    display: none;
-}
-.nav-toggle-label{
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1em;
-    /* border: 1px solid red; */
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-.nav-toggle:checked ~ nav a{
-    opacity: 1; /*Mostrar el texto después de la animación*/
-    transition: opacity 250ms ease-in-out 250ms; /*Tiempo y Retraso de la animación (tarda x tiempo antes de empezar la animación)*/
-}
-/*Navbar para pantallas superiores a 800px de ancho (eliminamos el desplegable)*/
-@media screen and (min-width: 600px) {
-    .nav-toggle-label {
+/* Main */
+    .tituloContent{
+        padding-top: 50px;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 3em;
+    }
+
+/* Creamos reglas de orden para todo el contenido de la página */
+    .content {
+        font-size: 20px;
+        margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
+        padding-top: 50px;
+        position: relative;
+        width: 100%;
+        min-height: 65vh; /* Cambiado a min-height para permitir que el contenido se expanda */
+        display: grid;
+        place-items: center;
+        gap: 20px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "area1 area2"
+            "area3 area3"
+            "area4 area4";
+    }
+
+/* Ubicamos nuestros elementos dentre del grid */
+    .datosPersonales{
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area1;
+        height: 100%;
+        width: 100%;
+
+    }
+
+
+    .opciones{
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area2;
+        height: 100%;
+        width: 100%;
+        
+    }
+
+
+    .explicacion{
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area3;
+        height: 100%;
+        width: 100%;
+        
+    }
+
+
+    .botones{
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area4;
+        height: 100%;
+        width: 100%;
+    }
+
+/* Ampliacion del espacio que ocupan los fieldset y añadir su estilo */
+    fieldset{
+        border-radius: 10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: rgb(73, 60, 255);
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+    }
+
+/* Añadimos un estilo personalizado a nuestro select */
+    select {
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        -ms-appearance:none;
+        appearance:none;
+        outline:0;
+        box-shadow:none;
+        border:0!important;
+        background: rgb(73, 60, 255);
+        background-image: none;
+        padding: 0 .5em;
+        color:palegreen;
+        cursor:pointer;
+        font-size: 80%;
+        margin-top: 10px;
+    }
+    select::-ms-expand {
         display: none;
     }
-    header {
+    .estiloSelect {
+        position: relative;
+        line-height: 2;
+        background: rgb(73, 60, 255);
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .estiloSelect::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        background: rgb(53, 39, 255);
+        cursor:pointer;
+        pointer-events:none;
+        transition:.50s all ease;
+    }
+    .estiloSelect:hover::after {
+        color: palegreen;
+    }
+
+
+/* Ajustamos el texto del contenido del select*/
+    .ordenSelect {
         display: grid;
-        grid-template-rows: auto; /* Tres filas iguales */
-        grid-template-columns: auto 1fr auto; /* Tres columnas: logo, texto, nav item right */
-        align-items: center; /* Alinea verticalmente los elementos */
-        justify-content: space-between; /* Espacio entre los elementos */
-        padding: 0 20px; /* Añade un poco de espacio alrededor de los elementos */
-        grid-template-areas:
-            "logo texto imagen";
+        place-items: center; /* Centrar contenido vertical y horizontalmente */
+        height: 100%;
     }
-    .logo {
-        grid-area: logo;
-        justify-self: start;
-        margin: 0;
+
+/* Añadimos estilo a nuestro textarea */
+    textarea{
+        background-color: rgb(90, 195, 255);
+        color: rgb(89, 0, 255);
+        border-radius: 10px;
+        border: none;
+        /* hacemos que el textarea sea responsive */
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        resize: vertical;
     }
-    ul.nav-menu-items {
-        grid-area: texto;
-        display: grid; /* Cambiamos a grid para que los elementos se muestren en la misma fila */
-        gap: 20px; /* Espacio entre elementos */
-        padding: 0;
-        list-style: none; /* Aseguramos que no haya viñetas en la lista */
+
+/* Modificamos el estilo de los input type text */
+    .inputTexto{
+        border: none;
+        border-radius: 7px;
     }
-    nav {
-        all: unset;
-        justify-self: center; /* Centra la navegación horizontalmente */
-        text-align: center; /* Alinea los elementos de navegación al centro */
-        margin: 0;
-        visibility: visible;
+
+/* Modificamos los botones de enviar y reset */
+    .botonForm{
+        border: none;
+        background-color: palegreen;
+        border-radius: 10px;
+        color: rgb(89, 0, 255);
+        padding: 10px 15px;
+        margin: 15px;
     }
-    nav ul {
-        grid-auto-flow: column;
-        gap: 20px; /* Espacio entre elementos */
-        align-items: center; /* Alinea verticalmente los elementos */
-        padding: 0;
-    }
-    nav li {
-        margin: 0;
-    }
-    nav a {
-        opacity: 1;
-        transition: .5s;
-        color: black; /* Asegura que el color del texto sea visible */
-    }
-    nav a:hover {
-        color: blue;
-        transition: .5s;
-    }
-    .nav-item-right {
-        all: unset;
-        grid-area: imagen;
-        margin: 0;
-        visibility: visible; /* Asegura que el elemento sea visible */
-        justify-self: end; /* Alinea el elemento a la derecha */
-    }
-}
-body{
-    margin: 0;
-    font-family: DosisRegular;
-    font-weight: 400;
-    background: rgb(108,91,249);
-    background: linear-gradient( 146deg, rgba(108,91,249,1) 0%, rgba(87,227,255,1) 100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.content {
-    margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
-    padding-top: 50px;
-    position: relative;
-}
-/* Main */
+
 /* Vista de escritorio */
-@media screen and (min-width: 992px) {
-    .content-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+    @media screen and (min-width: 992px) {
+        /* Agregar reglas de grid para la vista de escritorio */
+            .content-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .content .responsive {
+                width: 100%; /* Asegurar el ancho completo */
+            }
+
     }
-    .ubicacion-aside {
-        grid-column: 1; /* Colocar el aside a la izquierda */
-        grid-row: 1; /* Colocar el aside en la primera fila */
-        padding-top: 125px;
-        font-weight: bolder;
-        font-size: large;
-        text-align: left;
+/* Vista para tablet y móvil */
+    @media screen and (max-width: 991px) {
+        /* Agregar reglas de flex para la vista móvil */
+            .content {
+                display: flex;
+                flex-direction: column; /* Apilar elementos verticalmente */
+                align-items: center; /* Centrar horizontalmente */
+                text-align: center;
+            }
+            .content .responsive {
+                width: 100%; /* Asegurar el ancho completo */
+            }
+            .contenidoRadio {
+                all:unset;
+                display: flex;
+                flex-direction: column;
+                place-items: center; /* Centrar contenido vertical y horizontalmente */
+                height: 100%;
+            }
     }
-    .content {
-        grid-column: 2; /* Colocar el contenido a la derecha */
-    }
-}
-/*Footer: https://getwaves.io/*/
-/* Divisor */
-.divisor {
-    aspect-ratio: 900/250;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.divisor-bg {
-    background-image: url("../imagenes/wave.svg");
-    width: 100%;
-}
-.footer {
-    width: 100%;
-    background-image: linear-gradient(#98fb98,rgb(42, 138, 125));
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 300px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-        "textoFooter textoFooter textoFooter"
-        "contactoUrl placeholder acercadeUrl"
-        "derechos derechos derechos";
-    gap: 0px;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
-.textoFooter {
-    text-align: center;
-    font-size: 3em;
-    font-weight: bolder;
-    align-self: center;
-    grid-area: textoFooter;
-}
-
-.contactoUrl,
-.acercadeUrl {
-    text-align: right;
-    font-size: 1.5em;
-    align-self: center;
-}
-
-.contactoUrl {
-    grid-area: contactoUrl;
-}
-
-.acercadeUrl {
-    grid-area: acercadeUrl;
-}
-
-.contactoUrl a,
-.acercadeUrl a {
-    text-decoration: none;
-    color: darkgreen;
-    transition: .5s;
-    display: grid;
-    grid-template-columns: auto auto; /* Columnas para texto e imagen */
-    align-items: center;
-}
-
-.contactoUrl a:hover,
-.acercadeUrl a:hover {
-    color: blue;
-    transition: .5s;
-}
-
-.contactoUrl img,
-.acercadeUrl img {
-    margin-left: 0.5em; /* Espacio entre texto e imagen */
-}
-
-.derechos {
-    text-align: center;
-    font-size: 1em;
-    align-self: center;
-    grid-area: derechos;
-}
-/* Media query para pantallas de móvil */
-@media (max-width: 600px) {
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .textoFooter,
-    .contactoUrl,
-    .acercadeUrl,
-    .derechos {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .contactoUrl,
-    .acercadeUrl {
-        text-align: center;
-        display: flex;
-        align-items: center; /* Alinea elementos verticalmente */
-    }
-
-    .contactoUrl a,
-    .acercadeUrl a {
-        text-decoration: none;
-        color: darkgreen;
-        transition: .5s;
-        display: flex;
-        align-items: center; /* Alinea elementos verticalmente */
-        justify-content: center; /* Centra elementos horizontalmente */
-    }
-
-    /* Agregar margen a las imágenes para separarlas del texto */
-    .contactoUrl img,
-    .acercadeUrl img {
-        margin-left: 0.5em;
-        margin-top: 0; /* Restablece el margen superior */
-    }
-}
