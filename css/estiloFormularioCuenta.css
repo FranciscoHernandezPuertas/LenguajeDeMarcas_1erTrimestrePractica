@@ -1,153 +1,284 @@
 /* Main */
-.titulocontent{
-    padding-top: 50px;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 3em;
-}
-.content {
-    font-size: 20px;
-    margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
-    padding-top: 50px;
-    position: relative;
-    width: 100%;
-    min-height: 65vh; /* Cambiado a min-height para permitir que el contenido se expanda */
-    display: grid;
-    place-items: center;
-    gap: 20px;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-        "area1 area2"
-        "area3 area4"
-        "botones botones";
-}
-.radio {
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    align-self: center;
-    grid-area: area1;
-    height: 100%;
-    width: 100%;
-}
-.datos {
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    align-self: center;
-    grid-area: area2;
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
-}
-.contacto {
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    align-self: center;
-    grid-area: area3;
-    height: 100%;
-    width: 100%;
-}
-.otros {
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    align-self: center;
-    grid-area: area4;
-    height: 100%;
-    width: 100%;
-}
-.envio {
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    align-self: center;
-    grid-area: botones;
-    height: 100%;
-    width: 100%;
-}
+    .titulocontent{
+        padding-top: 50px;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 3em;
+    }
+
+/* Creamos reglas de orden para todo el contenido de la página */
+    .content {
+        font-size: 20px;
+        margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
+        padding-top: 50px;
+        position: relative;
+        width: 100%;
+        min-height: 65vh; /* Cambiado a min-height para permitir que el contenido se expanda */
+        display: grid;
+        place-items: center;
+        gap: 20px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "area1 area2"
+            "area3 area4"
+            "botones botones";
+    }
+
+/* Ubicamos nuestros elementos dentre del grid */
+    .radio {
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area1;
+        height: 100%;
+        width: 100%;
+    }
+    .datos {
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area2;
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+    .contacto {
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area3;
+        height: 100%;
+        width: 100%;
+    }
+    .otros {
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area4;
+        height: 100%;
+        width: 100%;
+    }
+    .envio {
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: botones;
+        height: 100%;
+        width: 100%;
+    }
 
 /* Ampliacion del espacio que ocupan los fieldset */
-fieldset{
-    border-radius: 5px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: rgb(73, 60, 255);
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-content: center;
-}
+    fieldset{
+        border-radius: 5px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: rgb(73, 60, 255);
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+    }
 
 /* Ajustamos el texto del contenido del apartado "Tipo de cuenta" */
-.contenidoRadio {
-    display: grid;
-    place-items: center; /* Centrar contenido vertical y horizontalmente */
-    height: 100%;
-}
-
-/* Edición del formato de los input */
-.InputTexto{
-    border: 0;
-    border-radius: 7px;
-}
-
-.InputOtros {
-    border-radius: 10px;
-}
-
-/* Vista de escritorio */
-@media screen and (min-width: 992px) {
-    .content-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-}
-
-/* Vista para tablet y móvil */
-@media screen and (max-width: 991px) {
-    /* Agregar reglas de flex para la vista móvil */
-    .content {
-        display: flex;
-        flex-direction: column; /* Apilar elementos verticalmente */
-        align-items: center; /* Centrar horizontalmente */
-        text-align: center;
-    }
-    .content .responsive {
-        width: 100%; /* Asegurar el ancho completo */
-    }
     .contenidoRadio {
-        all:unset;
-        display: flex;
-        flex-direction: column;
+        display: grid;
         place-items: center; /* Centrar contenido vertical y horizontalmente */
         height: 100%;
     }
-}
-@media screen and (max-width: 400px){
-    
-    /* Estilos para el label del input file */
-    /* Ocultar input file en la vista mini */
-    .datos input[type="file"].file {
-    display: none;
-  }
-  .datos label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 4px;
-    padding: 8px 12px;
-    margin-bottom: 10px;
-  }
 
-  /* Estilo opcional para resaltar cuando se pasa el cursor */
-  .datos label:hover {
-    background-color: #e0e0e0;
-  }
-}
+/* Añadimos un botón para adjuntar un archivo en "Seleccione una imagen de perfil" */
+    .imagenPerfil {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    
+    .botonFoto {
+        border: none;
+        color: palegreen;
+        background-color: rgb(73, 60, 255);
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    .imagenPerfil input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+/* Modificamos el estilo de los radio button */
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked) {
+        position: absolute;
+    }
+    [type="radio"]:checked + label,
+    [type="radio"]:not(:checked) + label
+    {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+    }
+    [type="radio"]:checked + label:before,
+    [type="radio"]:not(:checked) + label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border: 1px solid  rgb(73, 60, 255);
+        border-radius: 100%;
+        background:  rgb(73, 60, 255);
+    }
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: palegreen;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        border-radius: 100%;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    [type="radio"]:not(:checked) + label:after {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    [type="radio"]:checked + label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+/* Modificación del estilo de los checkbox */
+    input[type="checkbox"]{
+        -webkit-appearance: none;
+        appearance: none;
+        background-color:  rgb(73, 60, 255);
+        margin-left: 10px;
+        color:  rgb(73, 60, 255);
+        width: 20px;
+        height: 20px;
+        border-color:  palegreen;
+        border: none;
+        transform: translateY(4px);
+        cursor: pointer;
+        padding: 3px;
+    }
+    
+    input[type="checkbox"] {
+        border-radius: 3px;
+    }
+    .InputOtros::before {
+        display: block;
+        content: "";
+        width: 14px;
+        height: 14px;
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 14px 14px palegreen;
+    }
+    input[type="checkbox"]::before {
+        transform-origin: bottom left;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        transform: scale(0);
+    }
+    
+    input[type="checkbox"]:checked::before {
+        transform: scale(1);
+    }
+
+
+/* Ajustamos el texto del contenido del apartado "Contacto" */
+    .contenidoContacto {
+        display: grid;
+        place-items: center; /* Centrar contenido vertical y horizontalmente */
+        height: 100%;
+    }
+
+/* Edición del formato de los input */
+    .InputTexto{
+        border: 0;
+        border-radius: 7px;
+    }
+
+
+/* Modificamos los botones de enviar y reset */
+    .botonForm{
+        border: none;
+        background-color: palegreen;
+        border-radius: 10px;
+        color: rgb(89, 0, 255);
+        padding: 10px 15px;
+        margin: 15px;
+    }
+
+/* Vista de escritorio */
+    @media screen and (min-width: 992px) {
+        .content-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+    }
+
+/* Vista para tablet y móvil */
+    @media screen and (max-width: 991px) {
+        /* Agregar reglas de flex para la vista móvil */
+            .content {
+                display: flex;
+                flex-direction: column; /* Apilar elementos verticalmente */
+                align-items: center; /* Centrar horizontalmente */
+                text-align: center;
+            }
+            .content .responsive {
+                width: 100%; /* Asegurar el ancho completo */
+            }
+            .contenidoRadio {
+                all:unset;
+                display: flex;
+                flex-direction: column;
+                place-items: center; /* Centrar contenido vertical y horizontalmente */
+                height: 100%;
+            }
+    }
+    @media screen and (max-width: 400px){
+        
+        /* Estilos para el label del input file */
+        /* Ocultar input file en la vista mini */
+            .datos input[type="file"].file {
+            display: none;
+        }
+        .datos label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+        }
+
+    /* Estilo opcional para resaltar cuando se pasa el cursor */
+        .datos label:hover {
+            background-color: #e0e0e0;
+        }
+    }

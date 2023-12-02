@@ -1,0 +1,115 @@
+/* Main */
+    .titulocontent{
+        padding-top: 50px;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 3em;
+    }
+
+/* Añadimos un botón para adjuntar un archivo en "Seleccione una imagen de perfil" */
+    .volverInicio {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .botonInicio {
+        border: none;
+        color: palegreen;
+        background-color: rgb(73, 60, 255);
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .volverInicio input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+
+/* Creamos reglas de orden para todo el contenido de la página */
+    .content {
+        font-size: 20px;
+        margin-bottom: 100px; /* Añadimos margen inferior para asegurarnos de que el footer no se solape */
+        padding-top: 50px;
+        position: relative;
+        width: 100%;
+        min-height: 65vh; /* Cambiado a min-height para permitir que el contenido se expanda */
+        display: grid;
+        place-items: center;
+        gap: 20px;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "area1"
+            "area2";
+    }
+
+/* Ubicamos nuestros elementos dentre del grid */
+    .texto {
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area1;
+        height: 100%;
+        width: 100%;
+    }
+    .boton {
+        text-align: center;
+        font-size: 1em;
+        font-weight: bold;
+        align-self: center;
+        grid-area: area2;
+        height: 100%;
+        width: 100%;
+    }
+
+/* Ajustamos el texto del contenido de la página */
+    .texto, .boton {
+        display: grid;
+        place-items: center; /* Centrar contenido vertical y horizontalmente */
+        height: 100%;
+    }
+
+
+/* Vista de escritorio */
+    @media screen and (min-width: 992px) {
+        /* Agregar reglas de grid para la vista de escritorio */
+            .content-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .content .responsive {
+                width: 100%; /* Asegurar el ancho completo */
+            }
+
+    }
+
+
+/* Vista para tablet y móvil */
+    @media screen and (max-width: 991px) {
+        /* Agregar reglas de flex para la vista móvil */
+            .content {
+                display: flex;
+                flex-direction: column; /* Apilar elementos verticalmente */
+                align-items: center; /* Centrar horizontalmente */
+                text-align: center;
+            }
+            .content .responsive {
+                width: 100%; /* Asegurar el ancho completo */
+            }
+            .contenidoRadio {
+                all:unset;
+                display: flex;
+                flex-direction: column;
+                place-items: center; /* Centrar contenido vertical y horizontalmente */
+                height: 100%;
+            }
+    }
