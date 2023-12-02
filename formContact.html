@@ -17,7 +17,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="envios.html">Envíos</a></li>
                     <li><a href="acercaDe.html">Acerca de</a></li>
-                    <li><a href="formCuenta.html">Cuenta</a></li>
+                    <li><a href="formCuenta.html" target="_blank">Cuenta</a></li>
                     <li><a href="formContact.html" target="_blank">Contacto</a></li>
                 </ul>
             </nav>
@@ -40,48 +40,58 @@
                         <fieldset>
                             <legend>Datos Personales:</legend>
                             <p><label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" placeholder="Alexander" name="nombre" required autofocus></p>
+                            <input type="text" id="nombre" placeholder="Alexander" name="nombre" required autofocus class="inputTexto"></p>
                             <p><label for="email">Dirección de correo electrónico:</label>
-                            <input type="email" id="email" name="email" placeholder="example@example.org" required autofocus></p>
+                            <input type="email" id="email" name="email" placeholder="example@example.org" required autofocus class="inputTexto"></p>
                         </fieldset>
                     </div>
 
                     <div class="opciones">
-                        <p>Por favor, especifique con que tipo de problema está relacionado pregunta:</p>
-                            <select required >
-                                <optgroup label="Pagos">
-                                    <option value="opcion1">Contra Reembolso</option>
-                                    <option value="opcion2">Tarjeta</option>
-                                    <option value="opcion3">Efectivo (solo en local)</option>
-                                    <option value="opcion4">Apps de pagos</option>
-                                </optgroup>
-                                <optgroup label="Envio">
-                                    <option value="opcion5">Tasas de península / Canarias</option>
-                                    <option value="opcion6">Seguimiento</option>
-                                    <option value="opcion7">Transportistas</option>
-                                    <option value="opcion8">Tipos de envíos</option>
-                                </optgroup>
-                                <optgroup label="Productos">
-                                    <option value="opcion9">Acerca de los lavados</option>
-                                    <option value="opcion10">Garantía</option>
-                                    <option value="opcion11">Defectos</option>
-                                    <option value="opcion12">Reembolsos</option>
-                                </optgroup>
-                                <optgroup label="Otros">
-                                    <option value="opcion17">Otro...</option>
-                                </optgroup>
-                            </select>
+                        <fieldset class="select">
+                            <legend>Por favor, especifique con que tipo de problema está relacionado pregunta:</legend>
+                                <div class="ordenSelect">
+                                    <div class="estiloSelect">
+                                        <select name="consulta" id="consulta" required >
+                                            <option selected disabled>Elige tu tipo de consulta</option>
+                                            <optgroup label="Pagos">
+                                                <option value="opcion1">Contra Reembolso</option>
+                                                <option value="opcion2">Tarjeta</option>
+                                                <option value="opcion3">Efectivo (solo en local)</option>
+                                                <option value="opcion4">Apps de pagos</option>
+                                            </optgroup>
+                                            <optgroup label="Envio">
+                                                <option value="opcion5">Tasas de península / Canarias</option>
+                                                <option value="opcion6">Seguimiento</option>
+                                                <option value="opcion7">Transportistas</option>
+                                                <option value="opcion8">Tipos de envíos</option>
+                                            </optgroup>
+                                            <optgroup label="Productos">
+                                                <option value="opcion9">Acerca de los lavados</option>
+                                                <option value="opcion10">Garantía</option>
+                                                <option value="opcion11">Defectos</option>
+                                                <option value="opcion12">Reembolsos</option>
+                                            </optgroup>
+                                            <optgroup label="Otros">
+                                                <option value="opcion17">Otro...</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                        </fieldset>
                     </div>
 
                     <div class="explicacion">
-                        <p>Indíquenos a continuación una explicación del problema:</p>
-                        <textarea name="opinion" cols="40" rows="10" wrap="hard" maxlength="2000" placeholder="Escriba aquí"></textarea>
+                        <fieldset>
+                            <legend>Expliquenos su problema:</legend>
+                            <div class="textarea">
+                                <textarea name="opinion" cols="200" rows="20" wrap="hard" maxlength="2000" placeholder="Escriba aquí"></textarea>
+                            </div>
+                        </fieldset>
                     </div>
                     <div class="botones">
-                        <p><input type="submit" value="Enviar">
-                        <input type="reset" value="Restablecer Formulario"></p>
+                        <p><input type="submit" value="Enviar" class="botonForm">
+                        <input type="reset" value="Restablecer Formulario" class="botonForm"></p>
                     </div>
-                
                 </div>
             </form>
         </main>
