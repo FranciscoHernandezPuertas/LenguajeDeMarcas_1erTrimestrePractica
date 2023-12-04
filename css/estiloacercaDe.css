@@ -25,67 +25,40 @@
 
 #titulo{
   grid-area: area1;
-  text-align: center;
-  font-size: 2em;
-  align-self: center;
-  height: 100%;
-  width: 100%;
 }
 
 #texto1{
   grid-area: area2;
-  text-align: center;
-  font-size: 1em;
-  align-self: center;
-  height: 100%;
-  width: 100%;
 }
 
 #texto2{
   grid-area: area3;
-  text-align: center;
-  font-size: 1em;
-  align-self: center;
-  height: 100%;
-  width: 100%;
 }
 
 #texto3{
   grid-area: area4;
-  text-align: center;
-  font-size: 1em;
-  align-self: center;
-  height: 100%;
-  width: 100%;
 }
 
 #texto4{
   grid-area: area5;
-  text-align: center;
-  font-size: 1em;
-  align-self: center;
-  height: 100%;
-  width: 100%;
 }
 
 #texto5{
   grid-area: area6;
-  text-align: center;
-  font-size: 1em;
-  align-self: center;
-  height: 100%;
-  width: 100%;
 }
 
 #texto6{
   grid-area: area7;
+}
+
+/* Le establecemos a cada párrafo un formato común */
+#titulo, #texto1, #texto2, #texto3, #texto4, #texto5, #texto6{
   text-align: center;
   font-size: 1em;
   align-self: center;
   height: 100%;
   width: 100%;
 }
-
 /* Establecemos un estilo para los encabezados de h1 */
 h1 {
   color: palegreen;
