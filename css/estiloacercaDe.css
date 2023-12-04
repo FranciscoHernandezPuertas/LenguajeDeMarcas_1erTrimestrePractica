@@ -1,3 +1,92 @@
+/* Establecemos los valores de la maquetación en escritorio asi como estilo comun para todo el contenido */
+.content {
+  font-size: 20px;
+  margin-bottom: 100px;
+  padding-top: 50px;
+  position: relative;
+  width: 100%;
+  min-height: 65vh;
+  display: grid;
+  place-items: center;
+  gap: 20px;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto auto auto auto;
+  grid-template-areas:
+      "area1"
+      "area2"
+      "area3"
+      "area4"
+      "area5"
+      "area6"
+      "area7";
+}
+
+/* Asignamos a cada parrafo de la página su área correspondiente en el grid */
+
+#titulo{
+  grid-area: area1;
+  text-align: center;
+  font-size: 2em;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+#texto1{
+  grid-area: area2;
+  text-align: center;
+  font-size: 1em;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+#texto2{
+  grid-area: area3;
+  text-align: center;
+  font-size: 1em;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+#texto3{
+  grid-area: area4;
+  text-align: center;
+  font-size: 1em;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+#texto4{
+  grid-area: area5;
+  text-align: center;
+  font-size: 1em;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+#texto5{
+  grid-area: area6;
+  text-align: center;
+  font-size: 1em;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+#texto6{
+  grid-area: area7;
+  text-align: center;
+  font-size: 1em;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Establecemos un estilo para los encabezados de h1 */
 h1 {
   color: palegreen;
   text-align: center;
@@ -6,31 +95,61 @@ h1 {
   padding-top: 100px;
 }
 
+/* A los elementos de la clase highlight le establecemos un color, padding y ponemos la fuente en negrita */
 .highlight {
   background-color: #ffcc00;
   padding: 5px;
   font-weight: bold;
 }
 
+/* A los elementos de la clase bold le ponemos la fuente en negrita */
 .bold {
   font-weight: bold;
 }
 
+/* A los elementos de la clase italic le establecemos un estilo en itálica/cursiva */
 .italic {
   font-style: italic;
 }
 
+/* A los elementos de la clase underline los subrayamos */
 .underline {
   text-decoration: underline;
 }
 
+/* A los elementos de la clase blue-text le establecemos un color de texto azul */
 .blue-text {
   color: #007bff;
 }
 
+/* A todos los section les establecemos un margin, padding, color de fondo y curvamos las esquinas */
 section {
   margin-bottom: 20px;
   padding: 10px;
   background-color: #ffffff;
   border-radius: 10px;
+}
+
+/* Vista de escritorio */
+@media screen and (min-width: 992px) {
+  .content-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+  }
+
+}
+
+/* Vista para tablet y móvil */
+@media screen and (max-width: 991px) {
+  /* Agregar reglas de flex para la vista móvil */
+      .content, .contenidoContacto, .contenidoRadio {
+          display: flex;
+          flex-direction: column; /* Apilar elementos verticalmente */
+          align-items: center; /* Centrar horizontalmente */
+          text-align: center;
+      }
+      .content .responsive {
+          width: 100%; /* Asegurar el ancho completo */
+      }
 }
