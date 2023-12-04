@@ -1,56 +1,83 @@
-.content{
+/*Nota: esta tabla está diseñada gradualmente, primero con unos estilos para hacer que se ajuste y se vea,
+y luego estilos específicos de diseño para otorgarle una apariencia mejor.
+Al eliminar los estilos adicionales, se verá como la tabla pierde todo el diseño y se queda
+solamente con texto*/
+
+/* Define el espacio entre el borde superior del contenido y el borde superior de su contenedor */
+.content {
     padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr; /* Crea una columna flexible que ocupa el espacio disponible */
+    grid-template-rows: 1fr; /* Crea una fila flexible que ocupa el espacio disponible */
 }
+
+/* Define el modelo de caja (box-sizing) para el diseño de tabla */
 table, th, td {
     box-sizing: border-box; /* Agregado para incluir el borde y el relleno en el ancho y alto total */
-    border-spacing: 5px;
+    border-spacing: 5px; /* Espacio entre las celdas de la tabla */
 }
+
+/* Establece el ancho total de la tabla y especifica cómo deben colapsar los bordes de la tabla */
 table {
     width: 100%;
-    border-collapse:separate; /* Agregado para separar los bordes de las celdas */
-}
-th, td{
-    border: 0px;
-    border-style: solid;
-}
-.captionTabla {
-    font-weight: bold;
+    border-collapse: separate; /* Agregado para separar los bordes de las celdas */
 }
 
+/* Elimina los bordes de las celdas de la tabla */
+th, td {
+    border: 0px; /* Borde sin grosor */
+    border-style: solid; /* Establece un estilo de borde sólido */
+}
+
+/* Estilos de texto y margen para párrafos y celdas de la tabla */
 p, td {
     margin: 0;
-    text-align: center;
+    text-align: center; /* Alinea el texto al centro */
 }
-/* Bordes y Estilos Extra sobre la tabla */
 
+
+
+/* ESTILOS ADICIONALES PARA LA APARIENCIA DE LA TABLA A PARTIR DE ESTE PUNTO */
 table {
-    border-radius: 10px;
+    border-radius: 10px; /* Agrega esquinas redondeadas a la tabla */
 }
 
+/* Define el ancho de las columnas de la tabla */
 th, td {
-    width: 16.67%; /* Ajustar el ancho para dividir equitativamente en 6 columnas (100% / 6) */
+    width: 16.67%; /* Ajustar el ancho para dividir equitativamente */
 }
 
+/* Estilos específicos para las celdas de encabezado */
 th {
-    background-color: lightgreen;
-    border-radius: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background-color: lightgreen; /* Color de fondo para celdas de encabezado */
+    border-radius: 5px; /* Agrega esquinas redondeadas a las celdas de encabezado */
+    padding-top: 10px; /* Espacio superior dentro de las celdas de encabezado */
+    padding-bottom: 10px; /* Espacio inferior dentro de las celdas de encabezado */
 }
 
+/* Estilos específicos para las celdas de datos */
 td {
-    background-color: aqua;
-    border-radius: 5px;
+    background-color: aqua; /* Color de fondo para celdas de datos */
+    border-radius: 5px; /* Agrega esquinas redondeadas a las celdas de datos */
 }
-.captionTabla{
-    background-color: rgb(72, 29, 158);
-    color: white;
-    border-radius: 5px;
-    font-size:normal;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+/* Estilos para la leyenda (caption) de la tabla */
+.captionTabla {
+    background-color: rgb(72, 29, 158); /* Color de fondo para la leyenda */
+    color: white; /* Color del texto de la leyenda */
+    border-radius: 5px; /* Agrega esquinas redondeadas a la leyenda */
+    font-size: normal; /* Tamaño de fuente normal */
+    padding-top: 10px; /* Espacio superior dentro de la leyenda */
+    padding-bottom: 10px; /* Espacio inferior dentro de la leyenda */
 }
-.footerTabla{
-    background-color: rgb(72, 29, 158);
-    color: white;
+
+/* Estilos para el pie de la tabla */
+.footerTabla {
+    background-color: rgb(72, 29, 158); /* Color de fondo para el pie de la tabla */
+    color: white; /* Color del texto del pie de la tabla */
+}
+
+/* Estilos para el pie de la página */
+.footer {
+    min-height: 350px; /* Ajustamos la altura mínima del footer para evitar que se muestre una línea blanca en el fondo debido a que la web no tiene mucha altura */
 }

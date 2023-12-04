@@ -12,9 +12,9 @@
     transition: .5s;
 }
 .imagenBF img {
-    width: 500px;
+    width: 500px; /*Ancho de la imagen del black friday en pantallas grandes*/
 }
-.content-promotion{
+.content-promotion{ /* Grid que engloba a todos los subgrids, conteniendo a todas las imagenes y textos del main */
     display: grid;
     place-items: center;
     padding-top: 100px;
@@ -86,7 +86,7 @@ aside iframe {
     overflow: hidden; /* Oculta el contenido que excede el ancho */
     border-radius: 5px; /* Borde redondeado */
 }
-
+/*A continuación, van los estilos específicos para cada vista (movil, tablet, escritorio)*/
 /* Media query para vista móvil */
 @media screen and (max-width: 600px) {
     .content-promotion{

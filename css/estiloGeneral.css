@@ -6,11 +6,12 @@
 
 /* Estilos globales */
 *, *::before, *::after {
-    box-sizing: border-box; /* Utilizamos border-box para controlar los tamaños de los elementos */
+    box-sizing: border-box; /* Utilizamos border-box para controlar los tamaños de los elementos y evitar problemas, ya que el navegador agrega el padding y el borde al tamaño total del elemento.
+    De este modo, indicamos al navegador que el tamaño de los elementos ya incluye padding y borde, en lugar de agregarlos después */
 }
 
-/* Estilos para el encabezado */
-/* Navbar (Video de referencia: https://www.youtube.com/watch?v=xQstBIPeOdU) */
+/* Estilos para el encabezado. Nota: el estilo del header es el fondo de la propia navbar, empezando con una imagen, texto e imágenes que están dentro del header y navbar */
+/* Navbar. Nota: toda la navbar está hecha en vista de móvil primero, la vista de escritorio se aplica cambiando lo que se necesita en el @media screen  */
 header {
     background-color: palegreen; /* Color de fondo del encabezado */
     text-align: center; /* Alineación del texto al centro */
@@ -79,25 +80,25 @@ nav a:hover {
     transform: scale(1, 1); /* Animación desplegada */
 }
 
-/* Ocultar el botón de menú */
+/* Ocultar el botón (checkbox, no la imagen) de menú */
 .nav-toggle {
     display: none; /* No mostrar */
 }
 
-/* Ocultar elementos del lado derecho */
+/* Ocultar elementos (la imagen) del lado derecho */
 .nav-item-right {
     display: none; /* No mostrar */
 }
 
-/* Estilos para la etiqueta del botón de menú */
+/* Estilos para el botón (imagen) del botón de menú (nos interesa que esté a la izquierda del todo) */
 .nav-toggle-label {
     position: absolute; /* Posición absoluta */
-    top: 0; /* Desde la parte superior */
-    left: 0; /* Desde la izquierda */
+    top: 0; /* Desde la parte superior de la página (si no, se pone debajo de la navbar) */
+    left: 0; /* Desde la izquierda de la página (si no, se pone debajo de la navbar) */
     margin-left: 1em; /* Margen a la izquierda */
-    height: 100%; /* Altura completa */
+    height: 100%; /* Altura completa (para que se centre la imagen verticalmente) */
     display: flex; /* Usar flexbox */
-    align-items: center; /* Alinear verticalmente */
+    align-items: center; /* Alinear verticalmente el item */
 }
 
 /* Mostrar texto después de la animación */
@@ -106,18 +107,18 @@ nav a:hover {
     transition: opacity 250ms ease-in-out 250ms; /* Retraso de la animación */
 }
 
-/* Estilos específicos para pantallas superiores a 600px de ancho */
+/* Estilos específicos para escritorio (pantallas superiores a 600px de ancho) */
 @media screen and (min-width: 600px) {
     /* Ocultar el botón de menú en pantallas grandes */
     .nav-toggle-label {
-        display: none; /* No mostrar */
+        display: none; /* No mostrar en escritorio (la imagen del desplegable) */
     }
 
     /* Estilos para el encabezado en pantallas grandes */
     header {
         display: grid; /* Utiliza grid */
-        grid-template-rows: auto; /* Tres filas iguales */
-        grid-template-columns: auto 1fr auto; /* Tres columnas: logo, texto, nav item right */
+        grid-template-rows: auto; /* Filas automáticas (solo usamos una) */
+        grid-template-columns: auto 1fr auto; /* Tres columnas: logo, texto, nav item right (nos interesa que la central sea la más grande) */
         align-items: center; /* Alinea verticalmente los elementos */
         justify-content: space-between; /* Espacio entre los elementos */
         padding: 0 20px; /* Añade un poco de espacio alrededor de los elementos */
@@ -126,6 +127,8 @@ nav a:hover {
     }
 
     /* Estilos para el logo en pantallas grandes */
+    /*En la práctica este estilo es prescindible (que no repetitivo ya que no se establece previamente),
+     pero lo mantenemos para asegurarnos de que el logo no se mueve del sitio establecido en el grid*/
     .logo {
         grid-area: logo; /* Ubicación en el grid */
         justify-self: start; /* Alineación hacia la izquierda */
@@ -135,35 +138,37 @@ nav a:hover {
     /* Estilos para la lista de navegación en pantallas grandes */
     ul.nav-menu-items {
         grid-area: texto; /* Ubicación en el grid */
-        display: grid; /* Usa grid */
+        display: grid; /* Usa grid (utilizamos un grid para el texto, que está dentro del grid del header) */
         gap: 20px; /* Espacio entre elementos */
-        padding: 0; /* Sin relleno */
-        list-style: none; /* Sin viñetas en la lista */
+        /*Elementos prescindibles:
+        padding: 0; /* Sin relleno *
+        list-style: none; /* Sin viñetas en la lista, ya está en el estilo del ul */
     }
 
-    /* Estilos para la navegación en pantallas grandes */
+    /* Estilos para la navbar en pantallas grandes */
     nav {
         all: unset; /* Restablece todos los estilos */
-        justify-self: center; /* Centra horizontalmente */
+        justify-self: center; /* Centra los elementos al centro de su columna */
         text-align: center; /* Alinea al centro */
         margin: 0; /* Sin márgenes */
         visibility: visible; /* Hace visible */
     }
 
-    /* Estilos para la lista dentro de la navegación en pantallas grandes */
+    /* Estilos para la lista dentro de la navbar en pantallas grandes */
     nav ul {
-        grid-auto-flow: column; /* Ajusta automáticamente el flujo de columnas */
-        gap: 20px; /* Espacio entre elementos */
-        align-items: center; /* Alinea verticalmente */
+        grid-auto-flow: column; /* Ajusta automáticamente el grid para que las columnas se vean en una misma fila */
+        /*Elementos prescindibles:
+        gap: 20px; /* Espacio entre elementos *
+        align-items: center; /* Alinea verticalmente *
         padding: 0; /* Sin relleno */
     }
 
-    /* Estilos para los elementos de la lista de navegación en pantallas grandes */
+    /* Estilos para los elementos de la lista de la navbar en pantallas grandes */
     nav li {
         margin: 0; /* Sin márgenes */
     }
 
-    /* Estilos para los enlaces de la lista de navegación en pantallas grandes */
+    /* Estilos para los enlaces de la lista de la navbar en pantallas grandes */
     nav a {
         opacity: 1; /* Opacidad al 100% */
         transition: .5s; /* Duración de la transición */
@@ -180,8 +185,8 @@ nav a:hover {
         all: unset; /* Restablece todos los estilos */
         grid-area: imagen; /* Ubicación en el grid */
         margin: 0; /* Sin márgenes */
-        visibility: visible; /* Hace visible */
-        justify-self: end; /* Alinea a la derecha */
+        visibility: visible; /* Hace visible (estaba oculto en móvil) */
+        justify-self: end; /* Alinea a la derecha (por si acaso) */
     }
 }
 
@@ -189,13 +194,12 @@ nav a:hover {
 body {
     margin: 0; /* Sin márgenes */
     font-family: DosisRegular; /* Tipo de fuente */
-    font-weight: 400; /* Peso de la fuente */
     background: linear-gradient(146deg, rgba(108,91,249,1) 0%, rgba(87,227,255,1) 100%); /* Fondo con gradiente lineal */
     background-size: cover; /* Ajusta el tamaño del fondo */
     background-repeat: no-repeat; /* No repetir el fondo */
 }
 
-/* Estilos para la sección principal (main) */
+/* Estilos globales para la sección principal (main) */
 main {
     max-width: 90%; /* Ancho máximo para el contenido principal */
     margin: 0 auto; /* Centrar el contenido principal */
@@ -248,7 +252,7 @@ main {
 /* Estilos para los enlaces de contacto y acerca de */
 .contactoUrl,
 .acercadeUrl {
-    text-align: right; /* Alinea a la derecha */
+    text-align: right; /* Alinea a la derecha (izquierda de las imagenes) */
     font-size: 1.5em; /* Tamaño de fuente */
     align-self: center; /* Alineación vertical */
 }
@@ -266,10 +270,10 @@ main {
 /* Estilos para los enlaces dentro de contacto y acerca de */
 .contactoUrl a,
 .acercadeUrl a {
+    display: grid; /* Usa grid */
     text-decoration: none; /* Sin decoración de texto */
     color: darkgreen; /* Color del texto */
     transition: .5s; /* Duración de la transición */
-    display: grid; /* Usa grid */
     grid-template-columns: auto auto; /* Columnas para texto e imagen */
     align-items: center; /* Alinea verticalmente */
 }
@@ -299,8 +303,8 @@ main {
 @media (max-width: 600px) {
     .footer {
         display: flex; /* Usa flexbox */
-        flex-direction: column; /* Dirección de columna */
-        align-items: center; /* Alinea al centro */
+        flex-direction: column; /* Dirección de columna (todos los elementos de arriba a abajo) */
+        align-items: center; /* Alinea los items de flexbox al centro (en teoría es prescindible al haber solo un flex */
         padding: 20px; /* Espaciado interno */
     }
 
@@ -309,33 +313,36 @@ main {
     .contactoUrl,
     .acercadeUrl,
     .derechos {
-        text-align: center; /* Alinea al centro */
         margin-bottom: 10px; /* Margen inferior */
+        /*text-align: center; /* Alinea al centro */
     }
 
     /* Estilos para contacto y acerca de en pantallas de móvil */
     .contactoUrl,
     .acercadeUrl {
-        text-align: center; /* Alinea al centro */
         display: flex; /* Usa flexbox */
+        /*Estilos prescindibles: 
+        text-align: center; /* Alinea al centro *
         align-items: center; /* Alinea verticalmente */
     }
 
     /* Estilos para enlaces de contacto y acerca de en pantallas de móvil */
     .contactoUrl a,
     .acercadeUrl a {
-        text-decoration: none; /* Sin decoración de texto */
-        color: darkgreen; /* Color del texto */
-        transition: .5s; /* Duración de la transición */
         display: flex; /* Usa flexbox */
-        align-items: center; /* Alinea verticalmente */
+        /*Estilos prescindibles (ya usados en la vista de escritorio):
+        text-decoration: none; /* Sin decoración de texto *
+        color: darkgreen; /* Color del texto *
+        transition: .5s; /* Duración de la transición *
+        align-items: center; /* Alinea verticalmente *
         justify-content: center; /* Centra horizontalmente */
     }
 
-    /* Agregar espacios entre texto e imagen en pantallas de móvil */
+    /* Prescindible: Agregar espacios entre texto e imagen en pantallas de móvil *
     .contactoUrl img,
     .acercadeUrl img {
-        margin-left: 0.5em; /* Espacio entre texto e imagen */
-        margin-top: 0; /* Restablece el margen superior */
-    }
+        margin-left: 0.5em; /* Espacio entre texto e imagen *
+        margin-top: 0; /* Restablece el margen superior 
+    }*/
+    
 }
