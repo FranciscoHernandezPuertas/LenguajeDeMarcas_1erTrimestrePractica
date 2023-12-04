@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/estiloFormularioCuenta.css">
     </head>
     <body>
+        <!--Header y Navbar (ver css)-->
         <header>
             <h1 class="logo"><a href="index.html"><img src="imagenes/home_assistant.png" alt="Inicio Logo" width="50px"></a></h1>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -30,6 +31,8 @@
                 <span><img src="imagenes/pingtools.png" alt="Menú Navegación" width="50px"></span>
             </label>
         </header>
+        <!--Fin de la Navbar-->
+        <!--Main-->
         <main>
             <div class="titulocontent">
                 <p>Formulario de creacion de cuenta</p>
@@ -38,6 +41,7 @@
                 <div class="content">
                     <div class="radio">
                         <fieldset>
+                            <!--Apartado contendor del input radio button-->
                             <legend>Tipo de cuenta:</legend>
                             <div class="contenidoRadio">
                                 <p><input type="radio" name="cuenta" id="personal" value="personal">
@@ -53,26 +57,36 @@
                     </div>
                     <div class="datos">
                         <fieldset>
+                            <!--Input type text (requerido + autofocus)-->
                             <legend>Datos Personales:</legend>
                             <p><label for="nombre">Nombre:</label>
                             <input type="text" id="nombre" placeholder="Alexander" name="nombre" required autofocus class="InputTexto"></p>
 
                             
+                            <!--Input type text (requerido + autofocus)-->
                             <p><label for="apellidos">Apellidos:</label>
                             <input type="text" id="apellidos" placeholder="Perez Jimenez" name="apellidos" required autofocus class="InputTexto"></p>
 
+
+                            <!--Input type date (requerido + autofocus)-->
                             <p><label for="nacimiento">Fecha de nacimiento:</label>
                             <input type="date" id="nacimiento" placeholder="MM/DD/YYYY" required autofocus class="InputTexto"></p>
                             
+
+                            <!--Input type file (requerido + autofocus)-->
                             <p><label for="foto">Seleccione una imagen de perfil:</label>
                             <div class="imagenPerfil">
                                 <button class="botonFoto">Añadir foto</button>
                                 <input type="file" id="foto" class="file" name="miFoto" required autofocus ></p>
                             </div>
 
+
+                            <!--Input type text-->
                             <p><label for="dir">Introduzca su Dirección:</label>
                             <input type="text" name="dir" id="dir" placeholder="Calle Mayor 23" class="InputTexto"></p>
 
+
+                            <!--Input type text (con pattern)-->
                             <p><label for="cp">Introduzca su código postal:</label>
                             <input type="text" name="cp" id="cp" pattern="[0-9]{5}" placeholder="00000" class="InputTexto"></p>
                         </fieldset>
@@ -81,14 +95,17 @@
                         <fieldset>
                             <legend>Contacto:</legend>
                             <div class="contenidoContacto">
+                                <!--Input type email-->
                                 <p><label for="email">Introduzca su correo electrónico:</label>
                                 <input type="email" id="email" name="email" placeholder="example@example.org" class="InputTexto"></p>
                     
                     
+                                <!--Input type password-->
                                 <p><label for="password">Introduzca su contraseña:</label>
                                 <input type="password" id="password" name="password" class="InputTexto"></p>
                                 
 
+                                <!--Input type tel-->
                                 <p><label for="number">Introduzca su numero de teléfono (opcional):</label>
                                 <input type="tel" id="number" name="number" placeholder="+00 000 00 00 00" maxlength="12" class="InputTexto"></p>
                             </div>
@@ -99,6 +116,7 @@
                             <legend>Preferencias y Otros...</legend>
                             <p><label for="preferencias">Preferencias:</label></p>
 
+                                <!--Apartado dedicado a las checkbox-->
                                 <p><label for="monitor">Monitores</label>
                                 <input type="checkbox" name="monitor" id="monitor" class="InputOtros"></p>
 
@@ -114,30 +132,34 @@
                         </fieldset>
                     </div>
                     <div class="envio">
+                        <!--Botones de envio y reset-->
                         <p><input type="submit" value="Enviar" class="botonForm">
                         <input type="reset" value="Restablecer Formulario" class="botonForm"></p>
                     </div>
                 </div>
             </form>
         </main>
+        <!--Fin de Main-->
+        <!--Footer-->
         <footer>
-            <div class="divisor divisor-bg"></div>
+            <div class="divisor divisor-bg"></div> <!--Divisor (ola) entre Main y Footer-->
             <div class="footer">
-                <div class="textoFooter">ToDeTo</div>
-                <div class="contactoUrl">
-                    <a href="formContact.html" target="_blank">
-                        Contacto
-                        <img src="imagenes/jio_call.png" alt="Icono de contacto" width="50px">
-                    </a>
-                </div>
-                <div class="acercadeUrl">
-                    <a href="acercaDe.html">
-                        Acerca De
-                        <img src="imagenes/imgur.png" alt="Icono de Acerca de" width="50px">
-                    </a>
-                </div>
+                <div class="textoFooter">Todeto</div>
+                    <div class="contactoUrl">
+                        <a href="formContact.html" target="_blank">
+                            Contacto
+                            <img src="imagenes/jio_call.png" alt="Icono de contacto" width="50px">
+                        </a>
+                    </div>
+                    <div class="acercadeUrl">
+                        <a href="acercaDe.html">
+                            Acerca De
+                            <img src="imagenes/imgur.png" alt="Icono de Acerca de" width="50px">
+                        </a>
+                    </div>
                 <div class="derechos">&copy Todos los derechos reservados, 2023</div>
             </div>
         </footer>
+        <!--Fin de Footer-->
     </body>
 </html>

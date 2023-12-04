@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/estiloFormularioContacto.css">
     </head>
     <body>
+        <!--Header y Navbar (ver css)-->
         <header>
             <h1 class="logo"><a href="index.html"><img src="imagenes/home_assistant.png" alt="Inicio Logo" width="50px"></a></h1>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -30,12 +31,15 @@
                 <span><img src="imagenes/pingtools.png" alt="Menú Navegación" width="50px"></span>
             </label>
         </header>
+        <!--Fin de la Navbar-->
+        <!--Main-->
         <main>
             <div class="tituloContent">
                 <p>Si tiene alguna duda, puede contactar con nosotros usando el siguiente formulario:</p>
             </div>
             <form action="postForm.html" method="post">
             <div class="content">
+                <!--Apartado para pedir los datos como el nombre y la dirección de correo electronico-->
                     <div class="datosPersonales">
                         <fieldset>
                             <legend>Datos Personales:</legend>
@@ -51,6 +55,7 @@
                             <legend>Por favor, especifique con que tipo de problema está relacionado pregunta:</legend>
                                 <div class="ordenSelect">
                                     <div class="estiloSelect">
+                                        <!--Select ordenado por grupos-->
                                         <select name="consulta" id="consulta" required >
                                             <option selected disabled>Elige tu tipo de consulta</option>
                                             <optgroup label="Pagos">
@@ -83,36 +88,41 @@
                     <div class="explicacion">
                         <fieldset>
                             <legend>Expliquenos su problema:</legend>
+                            <!--Textarea responsive al ancho de la pantalla/ventana-->
                             <div class="textarea">
                                 <textarea name="opinion" cols="200" rows="20" wrap="hard" maxlength="2000" placeholder="Escriba aquí"></textarea>
                             </div>
                         </fieldset>
                     </div>
                     <div class="botones">
+                        <!--Botones de envio y reset-->
                         <p><input type="submit" value="Enviar" class="botonForm">
                         <input type="reset" value="Restablecer Formulario" class="botonForm"></p>
                     </div>
                 </div>
             </form>
         </main>
+        <!--Fin de Main-->
+        <!--Footer-->
         <footer>
-            <div class="divisor divisor-bg"></div>
+            <div class="divisor divisor-bg"></div> <!--Divisor (ola) entre Main y Footer-->
             <div class="footer">
-                <div class="textoFooter">ToDeTo</div>
-                <div class="contactoUrl">
-                    <a href="formContact.html">
-                        Contacto
-                        <img src="imagenes/jio_call.png" alt="Icono de contacto" width="50px">
-                    </a>
-                </div>
-                <div class="acercadeUrl">
-                    <a href="acercaDe.html">
-                        Acerca De
-                        <img src="imagenes/imgur.png" alt="Icono de Acerca de" width="50px">
-                    </a>
-                </div>
+                <div class="textoFooter">Todeto</div>
+                    <div class="contactoUrl">
+                        <a href="formContact.html" target="_blank">
+                            Contacto
+                            <img src="imagenes/jio_call.png" alt="Icono de contacto" width="50px">
+                        </a>
+                    </div>
+                    <div class="acercadeUrl">
+                        <a href="acercaDe.html">
+                            Acerca De
+                            <img src="imagenes/imgur.png" alt="Icono de Acerca de" width="50px">
+                        </a>
+                    </div>
                 <div class="derechos">&copy Todos los derechos reservados, 2023</div>
             </div>
         </footer>
+        <!--Fin de Footer-->
     </body>
 </html>
